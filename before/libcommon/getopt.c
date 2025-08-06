@@ -8,7 +8,6 @@
 
 #include	<sys/types.h>
 #include	<alloca.h>
-#include <stdlib.h>
 #include	<string.h>
 #include	"msgselect.h"
 
@@ -27,6 +26,11 @@ int	optind = 1;
 int	opterr = 1;
 int	optopt = 0;
 extern char	*pfmt_label__;
+
+#ifdef __APPLE__
+/* ISO C99 and later do not support implicit function declarations */
+void *alloca(size_t);
+#endif
 
 static void
 error(const char *s, int c)

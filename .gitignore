@@ -1,2 +1,7 @@
 *.o
 *.a
+egrep
+fgrep
+grep
+grep_su3
+grep_sus
