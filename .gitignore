@@ -1,3 +1,4 @@
+# object files
 *.o
 *.a
 egrep
@@ -5,3 +6,6 @@ fgrep
 grep
 grep_su3
 grep_sus
+
+# report directory
+clang-tidy-reports

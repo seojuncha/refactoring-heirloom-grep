@@ -1,0 +1,137 @@
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:183:3: warning: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119 [clang-analyzer-security.insecureAPI.strcpy]
+  183 |                 strcpy(&wp[*len-1+2], "\\>$");
+      |                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/secure/_string.h:84:3: note: expanded from macro 'strcpy'
+   84 |                 __builtin___strcpy_chk (dest, __VA_ARGS__, __darwin_obsz (dest))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:183:3: note: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119
+  183 |                 strcpy(&wp[*len-1+2], "\\>$");
+      |                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/secure/_string.h:84:3: note: expanded from macro 'strcpy'
+   84 |                 __builtin___strcpy_chk (dest, __VA_ARGS__, __darwin_obsz (dest))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:185:3: warning: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119 [clang-analyzer-security.insecureAPI.strcpy]
+  185 |                 strcpy(&wp[*len+2], "\\>");
+      |                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/secure/_string.h:84:3: note: expanded from macro 'strcpy'
+   84 |                 __builtin___strcpy_chk (dest, __VA_ARGS__, __darwin_obsz (dest))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:185:3: note: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119
+  185 |                 strcpy(&wp[*len+2], "\\>");
+      |                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/secure/_string.h:84:3: note: expanded from macro 'strcpy'
+   84 |                 __builtin___strcpy_chk (dest, __VA_ARGS__, __darwin_obsz (dest))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:209:6: warning: Value stored to 'wo' is never read [clang-analyzer-deadcode.DeadStores]
+  209 |                                         wo = wt = 0;
+      |                                         ^    ~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:209:6: note: Value stored to 'wo' is never read
+  209 |                                         wo = wt = 0;
+      |                                         ^    ~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:243:3: warning: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  243 |                 fprintf(stderr, "%s: could not exec %s\n", progname, arg0);
+      |                 ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:243:3: note: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11
+  243 |                 fprintf(stderr, "%s: could not exec %s\n", progname, arg0);
+      |                 ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:247:3: warning: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  247 |                 fprintf(stderr, "%s: cannot fork()\n", progname);
+      |                 ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:247:3: note: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11
+  247 |                 fprintf(stderr, "%s: cannot fork()\n", progname);
+      |                 ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:393:13: warning: using the result of an assignment as a condition without parentheses [clang-diagnostic-parentheses]
+  393 |                 if (hadnl = (ip->ib_cur < ip->ib_end && *lastnl == '\n'))
+      |                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:393:13: note: place parentheses around the assignment to silence this warning
+  393 |                 if (hadnl = (ip->ib_cur < ip->ib_end && *lastnl == '\n'))
+      |                           ^                                             
+      |                     (                                                   )
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:393:13: note: use '==' to turn this assignment into an equality comparison
+  393 |                 if (hadnl = (ip->ib_cur < ip->ib_end && *lastnl == '\n'))
+      |                           ^
+      |                           ==
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:414:5: warning: Value stored to 'sz' is never read [clang-analyzer-deadcode.DeadStores]
+  414 |                                 sz = 0;
+      |                                 ^    ~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:414:5: note: Value stored to 'sz' is never read
+  414 |                                 sz = 0;
+      |                                 ^    ~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:435:6: warning: Value stored to 'sz' is never read [clang-analyzer-deadcode.DeadStores]
+  435 |                                         sz = oldsz;
+      |                                         ^    ~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:435:6: note: Value stored to 'sz' is never read
+  435 |                                         sz = oldsz;
+      |                                         ^    ~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:507:4: warning: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  507 |                         ignoring("named pipe", fn);
+      |                         ^
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:505:24: note: expanded from macro 'ignoring'
+  505 | #define ignoring(t, s)  fprintf(stderr, "%s: ignoring %s %s\n", progname, t, s)
+      |                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:507:4: note: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11
+  507 |                         ignoring("named pipe", fn);
+      |                         ^
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:505:24: note: expanded from macro 'ignoring'
+  505 | #define ignoring(t, s)  fprintf(stderr, "%s: ignoring %s %s\n", progname, t, s)
+      |                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:510:4: warning: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  510 |                         ignoring("block device", fn);
+      |                         ^
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:505:24: note: expanded from macro 'ignoring'
+  505 | #define ignoring(t, s)  fprintf(stderr, "%s: ignoring %s %s\n", progname, t, s)
+      |                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:510:4: note: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11
+  510 |                         ignoring("block device", fn);
+      |                         ^
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:505:24: note: expanded from macro 'ignoring'
+  505 | #define ignoring(t, s)  fprintf(stderr, "%s: ignoring %s %s\n", progname, t, s)
+      |                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:513:4: warning: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  513 |                         ignoring("block device", fn);
+      |                         ^
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:505:24: note: expanded from macro 'ignoring'
+  505 | #define ignoring(t, s)  fprintf(stderr, "%s: ignoring %s %s\n", progname, t, s)
+      |                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:513:4: note: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11
+  513 |                         ignoring("block device", fn);
+      |                         ^
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:505:24: note: expanded from macro 'ignoring'
+  505 | #define ignoring(t, s)  fprintf(stderr, "%s: ignoring %s %s\n", progname, t, s)
+      |                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:517:4: warning: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  517 |                         ignoring("socket", fn);
+      |                         ^
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:505:24: note: expanded from macro 'ignoring'
+  505 | #define ignoring(t, s)  fprintf(stderr, "%s: ignoring %s %s\n", progname, t, s)
+      |                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:517:4: note: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11
+  517 |                         ignoring("socket", fn);
+      |                         ^
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:505:24: note: expanded from macro 'ignoring'
+  505 | #define ignoring(t, s)  fprintf(stderr, "%s: ignoring %s %s\n", progname, t, s)
+      |                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:536:6: warning: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  536 |                                         fprintf(stderr, "%s: can't open "
+      |                                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:536:6: note: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11
+  536 |                                         fprintf(stderr, "%s: can't open "
+      |                                         ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:545:4: warning: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119 [clang-analyzer-security.insecureAPI.strcpy]
+  545 |                         strcpy(path, fn);
+      |                         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/secure/_string.h:84:3: note: expanded from macro 'strcpy'
+   84 |                 __builtin___strcpy_chk (dest, __VA_ARGS__, __darwin_obsz (dest))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:545:4: note: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119
+  545 |                         strcpy(path, fn);
+      |                         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/secure/_string.h:84:3: note: expanded from macro 'strcpy'
+   84 |                 __builtin___strcpy_chk (dest, __VA_ARGS__, __darwin_obsz (dest))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:572:5: warning: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  572 |                                 fprintf(stderr, "%s: can't open %s\n",
+      |                                 ^~~~~~~
+/Users/csj/1/refactoring-heirloom-grep/before/grep.c:572:5: note: Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11
+  572 |                                 fprintf(stderr, "%s: can't open %s\n",
+      |                                 ^~~~~~~

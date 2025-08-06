@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BUILD_DIR="."
+REPORT_DIR="./clang-tidy-reports"
+
+mkdir -p "$REPORT_DIR"
+
+find . \( -name "*.c" -o -name "*.cpp" -o -name "*.cc" \) | while read file; do
+    echo "Analyzing $file ..."
+    report_file="$REPORT_DIR/$(echo $file | tr '/' '_').txt"
+    clang-tidy "$file" -system-headers -- -std=gnu99 -Os -fomit-frame-pointer -D_GNU_SOURCE -I./libcommon -I./libuxre -DUXRE -D_FILE_OFFSET_BITS=64L -p "$BUILD_DIR" --format-style=file > "$report_file"
+done
+
+echo "Analysis complete. Reports are in $REPORT_DIR"
