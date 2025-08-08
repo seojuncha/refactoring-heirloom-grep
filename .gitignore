@@ -9,3 +9,6 @@ grep_sus
 
 # report directory
 clang-tidy-reports
+
+# etc
+.DS_Store

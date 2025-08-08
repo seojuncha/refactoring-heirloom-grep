@@ -1,0 +1,3 @@
+grep.c:545,warning,nullPointerOutOfMemory,If memory allocation fails, then there is a possible null pointer dereference: path
+grep.c:546,warning,nullPointerOutOfMemory,If memory allocation fails, then there is a possible null pointer dereference: path
+grep.c:490,error,uninitvar,Uninitialized variable: &st
