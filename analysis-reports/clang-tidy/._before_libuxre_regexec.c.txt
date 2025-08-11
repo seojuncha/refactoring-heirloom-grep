@@ -1,0 +1,35 @@
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/colldata.h:57:10: error: 'wcharm.h' file not found with <angled> include; use "quotes" instead [clang-diagnostic-error]
+#include <wcharm.h>
+         ^~~~~~~~~~
+         "wcharm.h"
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/re.h:40:10: error: 'colldata.h' file not found with <angled> include; use "quotes" instead [clang-diagnostic-error]
+#include <colldata.h>
+         ^~~~~~~~~~~~
+         "colldata.h"
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regexec.c:39:24: error: no member named 're_flags' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+        ex.flags = flg | (ep->re_flags & (REG_NEWLINE|REG_ICASE|REG_AVOIDNULL));
+                          ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regexec.c:39:58: error: use of undeclared identifier 'REG_AVOIDNULL' [clang-diagnostic-error]
+        ex.flags = flg | (ep->re_flags & (REG_NEWLINE|REG_ICASE|REG_AVOIDNULL));
+                                                                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regexec.c:42:22: error: no member named 're_mb_cur_max' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+        ex.mb_cur_max = ep->re_mb_cur_max;
+                        ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regexec.c:45:11: error: no member named 're_flags' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                if (ep->re_flags & REG_NOSUB)
+                    ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regexec.c:47:16: error: no member named 're_flags' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                else if (ep->re_flags & REG_ONESUB)
+                         ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regexec.c:47:27: error: use of undeclared identifier 'REG_ONESUB' [clang-diagnostic-error]
+                else if (ep->re_flags & REG_ONESUB)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regexec.c:52:10: error: no member named 're_flags' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+        if (ep->re_flags & REG_DFA && ex.nmatch <= 1)
+            ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regexec.c:53:32: error: no member named 're_dfa' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                ret = libuxre_regdfaexec(ep->re_dfa, &ex);
+                                         ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regexec.c:55:32: error: no member named 're_nfa' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                ret = libuxre_regnfaexec(ep->re_nfa, &ex);
+                                         ~~  ^

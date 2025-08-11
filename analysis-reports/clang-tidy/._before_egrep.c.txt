@@ -1,0 +1,568 @@
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:124:15: warning: macro replacement list should be enclosed in parentheses [bugprone-macro-parentheses]
+#define FINAL -1
+              ^
+              ( )
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:125:17: warning: invalid case style for variable 'MAXLIN' [readability-identifier-naming]
+static unsigned MAXLIN;
+                ^~~~~~
+                maxlin
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:126:17: warning: invalid case style for variable 'MAXPOS' [readability-identifier-naming]
+static unsigned MAXPOS;
+                ^~~~~~
+                maxpos
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:127:17: warning: invalid case style for variable 'MAXCHARS' [readability-identifier-naming]
+static unsigned MAXCHARS;
+                ^~~~~~~~
+                maxchars
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:411:2: warning: macro argument should be enclosed in parentheses [bugprone-macro-parentheses]
+        Stack = &yyptr->Stack;                                          \
+        ^
+        (    )
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:412:38: warning: macro argument should be enclosed in parentheses [bugprone-macro-parentheses]
+        yynewbytes = yystacksize * sizeof (*Stack) + YYSTACK_GAP_MAXIMUM; \
+                                            ^
+                                            (    )
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:553:21: warning: macro replacement list should be enclosed in parentheses [bugprone-macro-parentheses]
+#define YYPACT_NINF -6
+                    ^
+                    ( )
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:571:22: warning: macro replacement list should be enclosed in parentheses [bugprone-macro-parentheses]
+#define YYTABLE_NINF -15
+                     ^
+                     (  )
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1172:1: warning: function 'yyparse' has cognitive complexity of 73 (threshold 25) [readability-function-cognitive-complexity]
+yyparse (void)
+^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1243:3: note: +1
+  goto yysetstate;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1256:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyss + yystacksize - 1 <= yyssp)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1288:7: note: +2, including nesting penalty of 1, nesting level increased to 2
+      if (YYMAXDEPTH <= yystacksize)
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1291:7: note: +2, including nesting penalty of 1, nesting level increased to 2
+      if (YYMAXDEPTH < yystacksize)
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1298:2: note: +2, including nesting penalty of 1, nesting level increased to 2
+        if (! yyptr)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1300:2: note: +2, including nesting penalty of 1, nesting level increased to 2
+        YYSTACK_RELOCATE (yyss);
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:407:5: note: expanded from macro 'YYSTACK_RELOCATE'
+    do                                                                  \
+    ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1301:2: note: +2, including nesting penalty of 1, nesting level increased to 2
+        YYSTACK_RELOCATE (yyvs);
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:407:5: note: expanded from macro 'YYSTACK_RELOCATE'
+    do                                                                  \
+    ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1304:2: note: +2, including nesting penalty of 1, nesting level increased to 2
+        if (yyss1 != yyssa)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1317:7: note: +2, including nesting penalty of 1, nesting level increased to 2
+      if (yyss + yystacksize - 1 <= yyssp)
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1323:3: note: +1
+  goto yybackup;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1335:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyn == YYPACT_NINF)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1341:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yychar == YYEMPTY)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1347:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yychar <= YYEOF)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1352:3: note: +1, nesting level increased to 1
+  else
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1354:17: note: +2, including nesting penalty of 1, nesting level increased to 2
+      yytoken = YYTRANSLATE (yychar);
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:438:38: note: expanded from macro 'YYTRANSLATE'
+  ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
+                                     ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1361:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyn < 0 || YYLAST < yyn || yycheck[yyn] != yytoken)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1361:31: note: +1
+  if (yyn < 0 || YYLAST < yyn || yycheck[yyn] != yytoken)
+                              ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1364:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyn <= 0)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1366:7: note: +2, including nesting penalty of 1, nesting level increased to 2
+      if (yyn == 0 || yyn == YYTABLE_NINF)
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1366:20: note: +1
+      if (yyn == 0 || yyn == YYTABLE_NINF)
+                   ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1369:7: note: +1
+      goto yyreduce;
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1372:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyn == YYFINAL)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1377:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyerrstatus)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1384:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yychar != YYEOF)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1390:3: note: +1
+  goto yynewstate;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1398:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyn == 0)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1400:3: note: +1
+  goto yyreduce;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1422:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  switch (yyn)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1533:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (0 <= yystate && yystate <= YYLAST && yycheck[yystate] == *yyssp)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1533:41: note: +1
+  if (0 <= yystate && yystate <= YYLAST && yycheck[yystate] == *yyssp)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1535:3: note: +1, nesting level increased to 1
+  else
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1538:3: note: +1
+  goto yynewstate;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1546:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (!yyerrstatus)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1588:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyerrstatus == 3)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1593:7: note: +2, including nesting penalty of 1, nesting level increased to 2
+      if (yychar <= YYEOF)
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1596:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+          if (yychar == YYEOF)
+          ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1599:7: note: +1, nesting level increased to 2
+      else
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1609:3: note: +1
+  goto yyerrlab1;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1620:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (/*CONSTCOND*/ 0)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1629:3: note: +1
+  goto yyerrlab1;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1638:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  for (;;)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1641:7: note: +2, including nesting penalty of 1, nesting level increased to 2
+      if (yyn != YYPACT_NINF)
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1644:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+          if (0 <= yyn && yyn <= YYLAST && yycheck[yyn] == YYTERROR)
+          ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1644:34: note: +1
+          if (0 <= yyn && yyn <= YYLAST && yycheck[yyn] == YYTERROR)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1647:8: note: +4, including nesting penalty of 3, nesting level increased to 4
+              if (0 < yyn)
+              ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1653:7: note: +2, including nesting penalty of 1, nesting level increased to 2
+      if (yyssp == yyss)
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1664:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyn == YYFINAL)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1674:3: note: +1
+  goto yynewstate;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1682:3: note: +1
+  goto yyreturn;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1689:3: note: +1
+  goto yyreturn;
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1702:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yychar != YYEOF && yychar != YYEMPTY)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1702:23: note: +1
+  if (yychar != YYEOF && yychar != YYEMPTY)
+                      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1709:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  while (yyssp != yyss)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1716:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+  if (yyss != yyssa)
+  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1254:12: warning: narrowing conversion from 'int' to signed type 'yytype_int16' (aka 'short') is implementation-defined [bugprone-narrowing-conversions]
+  *yyssp = yystate;
+           ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1334:9: warning: 'signed char' to 'int' conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+  yyn = yypact[yystate];
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1363:9: warning: 'signed char' to 'int' conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+  yyn = yytable[yyn];
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1534:15: warning: 'signed char' to 'int' conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+    yystate = yytable[yystate];
+              ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1536:15: warning: 'signed char' to 'int' conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+    yystate = yydefgoto[yyn - YYNTOKENS];
+              ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1640:13: warning: 'signed char' to 'int' conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+      yyn = yypact[yystate];
+            ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1646:14: warning: 'signed char' to 'int' conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+              yyn = yytable[yyn];
+                    ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1804:3: warning: switch has 2 consecutive identical branches [bugprone-branch-clone]
+                case '(': return (c);
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1805:23: note: last of these clones ends here
+                case ')': return (c);
+                                    ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1807:3: warning: switch has 2 consecutive identical branches [bugprone-branch-clone]
+                case EOF: return (0);
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1808:24: note: last of these clones ends here
+                case '\0': return (0);
+                                     ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1871:6: warning: 3 adjacent parameters of 'node' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+node(int x, int l, int r) {
+     ^~~~~~~~~~~~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1871:10: note: the first parameter in the range is 'x'
+node(int x, int l, int r) {
+         ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1871:24: note: the last parameter in the range is 'r'
+node(int x, int l, int r) {
+                       ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1882:7: warning: 2 adjacent parameters of 'unary' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+unary(int x, int d) {
+      ^~~~~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1882:11: note: the first parameter in the range is 'x'
+unary(int x, int d) {
+          ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1882:18: note: the last parameter in the range is 'd'
+unary(int x, int d) {
+                 ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1908:1: warning: function 'cgotofn' has cognitive complexity of 62 (threshold 25) [readability-function-cognitive-complexity]
+cgotofn(int s, int c)
+^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:13: note: +1, including nesting penalty of 0, nesting level increased to 1
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                   ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:44: note: +2, including nesting penalty of 1, nesting level increased to 2
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                                                  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:22: note: +1
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                            ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:58: note: nesting level increased to 3
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                                                                ^
+/usr/include/ctype.h:220:22: note: expanded from macro 'tolower'
+#  define tolower(c)    __tobody (c, tolower, *__ctype_tolower_loc (), (c))
+                        ^
+/usr/include/ctype.h:157:4: note: expanded from macro '__tobody'
+   ({ int __res;                                                              \
+   ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:58: note: +4, including nesting penalty of 3, nesting level increased to 4
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                                                                ^
+/usr/include/ctype.h:220:22: note: expanded from macro 'tolower'
+#  define tolower(c)    __tobody (c, tolower, *__ctype_tolower_loc (), (c))
+                        ^
+/usr/include/ctype.h:158:7: note: expanded from macro '__tobody'
+      if (sizeof (c) > 1)                                                     \
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:58: note: +5, including nesting penalty of 4, nesting level increased to 5
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                                                                ^
+/usr/include/ctype.h:220:22: note: expanded from macro 'tolower'
+#  define tolower(c)    __tobody (c, tolower, *__ctype_tolower_loc (), (c))
+                        ^
+/usr/include/ctype.h:160:4: note: expanded from macro '__tobody'
+          if (__builtin_constant_p (c))                                       \
+          ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:58: note: +6, including nesting penalty of 5, nesting level increased to 6
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                                                                ^
+/usr/include/ctype.h:220:22: note: expanded from macro 'tolower'
+#  define tolower(c)    __tobody (c, tolower, *__ctype_tolower_loc (), (c))
+                        ^
+/usr/include/ctype.h:163:40: note: expanded from macro '__tobody'
+              __res = __c < -128 || __c > 255 ? __c : (a)[__c];               \
+                                              ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:58: note: +1
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                                                                ^
+/usr/include/ctype.h:220:22: note: expanded from macro 'tolower'
+#  define tolower(c)    __tobody (c, tolower, *__ctype_tolower_loc (), (c))
+                        ^
+/usr/include/ctype.h:163:27: note: expanded from macro '__tobody'
+              __res = __c < -128 || __c > 255 ? __c : (a)[__c];               \
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:58: note: +1, nesting level increased to 5
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                                                                ^
+/usr/include/ctype.h:220:22: note: expanded from macro 'tolower'
+#  define tolower(c)    __tobody (c, tolower, *__ctype_tolower_loc (), (c))
+                        ^
+/usr/include/ctype.h:165:4: note: expanded from macro '__tobody'
+          else                                                                \
+          ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:58: note: +1, nesting level increased to 4
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                                                                ^
+/usr/include/ctype.h:220:22: note: expanded from macro 'tolower'
+#  define tolower(c)    __tobody (c, tolower, *__ctype_tolower_loc (), (c))
+                        ^
+/usr/include/ctype.h:168:7: note: expanded from macro '__tobody'
+      else                                                                    \
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1919:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (i=3; i <= line; i++) tmpstat[i] = initstat[i];
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1921:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (i=0; i<num; i++) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1923:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((k = name[curpos]) >= 0)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1924:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1927:5: note: +1
+                                || (cc != '\n' && cc != WEOF && ((k == DOT)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1925:39: note: +1
+                                ((cc & ~(wchar_t)(NCHARS-1)) == 0 && k == cc)
+                                                                  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1926:20: note: +1
+                                || (k == MCHAR && cc == chars[right[curpos]])
+                                               ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1927:34: note: +1
+                                || (cc != '\n' && cc != WEOF && ((k == DOT)
+                                                             ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1929:5: note: +1
+                                || (k == NCCL && member(cc, right[curpos], 0))))
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1928:18: note: +1
+                                || (k == CCL && member(cc, right[curpos], 1))
+                                             ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1929:19: note: +1
+                                || (k == NCCL && member(cc, right[curpos], 0))))
+                                              ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1931:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (foll[curpos] < MAXPOS)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1933:5: note: +1, nesting level increased to 4
+                                else
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1936:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                for (k=0; k<number; k++) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1937:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        if (tmpstat[positions[newpos]] != 1) {
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1946:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (notin(n)) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1947:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (++n >= NSTATES) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1955:3: note: +1, nesting level increased to 2
+                else {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1957:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((c & ~(wchar_t)(NCHARS-1)) == 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1961:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (tmpstat[line] == 1) out[n] = 1;
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1963:2: note: +1, nesting level increased to 1
+        else {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1965:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((c & ~(wchar_t)(NCHARS-1)) == 0)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:15: warning: narrowing conversion from 'unsigned int' to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                     ^
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:85:17: note: expanded from macro 'mbcode'
+#define mbcode          (mb_cur_max>1)  /* multibyte characters in use */
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:1916:71: warning: narrowing conversion from 'unsigned int' to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+        cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+                                                                             ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2003:29: warning: repeated branch in conditional chain [bugprone-branch-clone]
+                if (cstate(left[v]) == 0) return (0);
+                                          ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2003:39: note: end of the original
+                if (cstate(left[v]) == 0) return (0);
+                                                    ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2005:8: note: clone 1 starts here
+                else return (0);
+                     ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2019:8: warning: 3 adjacent parameters of 'member' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+member(int symb, int set, int torf) {
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2019:12: note: the first parameter in the range is 'symb'
+member(int symb, int set, int torf) {
+           ^~~~
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2019:31: note: the last parameter in the range is 'torf'
+member(int symb, int set, int torf) {
+                              ^~~~
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2131:13: warning: 'signed char' to 'wint_t' (aka 'unsigned int') conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+                else wc = *p++;
+                          ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2134:27: warning: narrowing conversion from 'wint_t' (aka 'unsigned int') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                        nstat = cgotofn(cstat, wc);
+                                               ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2161:1: warning: function 'eg_range' has cognitive complexity of 45 (threshold 25) [readability-function-cognitive-complexity]
+eg_range(struct iblok *ip, char *last)
+^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2170:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (out[cstat]) goto found;
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2171:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (;;) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2172:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((nstat = gotofn[cstat][*p & 0377]) == 0)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2175:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (out[cstat]) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2176:10: note: +3, including nesting penalty of 2, nesting level increased to 3
+                found:  for (;;) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2177:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (vflag == 0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2179:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        if (qflag || lflag)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2179:16: note: +1
+                                        if (qflag || lflag)
+                                                  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2182:5: note: +1, nesting level increased to 4
+                                else {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2184:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        while (*ip->ib_cur++ != '\n');
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2186:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if ((p = ip->ib_cur) > last)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2189:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if ((out[(cstat=istat)]) == 0) goto brk2;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2192:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (*p++ == '\n') {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2193:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (vflag) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2195:5: note: +1
+                                goto succeed;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2197:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((ip->ib_cur = p) > last)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2200:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (out[(cstat=istat)]) goto found;
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2207:1: warning: function 'eg_rangew' has cognitive complexity of 52 (threshold 25) [readability-function-cognitive-complexity]
+eg_rangew(struct iblok *ip, char *last)
+^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2218:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (out[cstat]) goto found;
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2219:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (;;) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2220:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (*p & 0200) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2221:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((n = mbtowi(&wc, p, last + 1 - p)) < 0) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2226:3: note: +1, nesting level increased to 2
+                else {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2230:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((wc & ~(wchar_t)(NCHARS-1)) != 0 ||
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2230:40: note: +1
+                if ((wc & ~(wchar_t)(NCHARS-1)) != 0 ||
+                                                     ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2234:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (out[cstat]) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2235:10: note: +3, including nesting penalty of 2, nesting level increased to 3
+                found:  for (;;) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2236:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (vflag == 0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2238:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        if (qflag || lflag)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2238:16: note: +1
+                                        if (qflag || lflag)
+                                                  ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2241:5: note: +1, nesting level increased to 4
+                                else {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2243:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        while (*ip->ib_cur++ != '\n');
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2245:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if ((p = ip->ib_cur) > last)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2248:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if ((out[(cstat=istat)]) == 0) goto brk2;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2252:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (wc == '\n') {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2253:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (vflag) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2255:5: note: +1
+                                goto succeed;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2257:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((ip->ib_cur = p) > last)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2260:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (out[(cstat=istat)]) goto found;
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2227:9: warning: 'signed char' to 'wint_t' (aka 'unsigned int') conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+                        wc = *p;
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/egrep.c:2232:27: warning: narrowing conversion from 'wint_t' (aka 'unsigned int') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                        nstat = cgotofn(cstat, wc);
+                                               ^
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:33:10: error: 'iblok.h' file not found [clang-diagnostic-error]
+#include        "iblok.h"
+                ^~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:70:13: warning: invalid case style for variable 'Eflag' [readability-identifier-naming]
+extern int              Eflag;          /* use EREs */
+                        ^~~~~
+                        eflag
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:71:13: warning: invalid case style for variable 'Fflag' [readability-identifier-naming]
+extern int              Fflag;          /* use fixed strings */
+                        ^~~~~
+                        fflag

@@ -1,0 +1,476 @@
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:119:1: warning: function 'ac_match' has cognitive complexity of 35 (threshold 25) [readability-function-cognitive-complexity]
+ac_match(const char *line, size_t sz)
+^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:129:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (p == &line[sz])
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:131:2: note: +1, nesting level increased to 1
+        else
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:133:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (;;) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:135:4: note: +2, including nesting penalty of 1, nesting level increased to 2
+                        if (c->inp == z) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:138:9: note: +1, nesting level increased to 2
+                        else if (c->link != 0) {
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:140:5: note: +1
+                                goto nstate;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:142:4: note: +1, nesting level increased to 2
+                        else {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:145:5: note: +3, including nesting penalty of 2, nesting level increased to 3
+                                if (c==0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:148:6: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                        if (c->inp == z) {
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:151:11: note: +1, nesting level increased to 4
+                                        else if (c->link != 0) {
+                                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:153:7: note: +1
+                                                goto istate;
+                                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:156:5: note: +1, nesting level increased to 3
+                                else goto nstate;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:158:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (c->out) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:159:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (xflag) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:160:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (failed || p < &line[sz])
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:160:16: note: +1
+                                if (failed || p < &line[sz])
+                                           ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:165:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (++p >= &line[sz]) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:166:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (z == '\n')
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:168:4: note: +1, nesting level increased to 3
+                        else
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:170:5: note: +1, nesting level increased to 2
+                } else
+                  ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:176:1: warning: function 'ac_range' has cognitive complexity of 57 (threshold 25) [readability-function-cognitive-complexity]
+ac_range(struct iblok *ip, char *last)
+^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:186:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (;;) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:188:4: note: +2, including nesting penalty of 1, nesting level increased to 2
+                        if (c->inp == (*p & 0377)) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:191:9: note: +1, nesting level increased to 2
+                        else if (c->link != 0) {
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:193:5: note: +1
+                                goto nstate;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:195:4: note: +1, nesting level increased to 2
+                        else {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:198:5: note: +3, including nesting penalty of 2, nesting level increased to 3
+                                if (c==0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:201:6: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                        if (c->inp == (*p & 0377)) {
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:204:11: note: +1, nesting level increased to 4
+                                        else if (c->link != 0) {
+                                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:206:7: note: +1
+                                                goto istate;
+                                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:209:5: note: +1, nesting level increased to 3
+                                else goto nstate;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:211:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (c->out) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:212:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (xflag) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:214:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                while (*ep != '\n')
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:216:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if ((failed || ep > p) && vflag == 0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:216:28: note: +1
+                                if ((failed || ep > p) && vflag == 0) {
+                                                       ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:216:17: note: +1
+                                if ((failed || ep > p) && vflag == 0) {
+                                            ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:218:6: note: +1
+                                        goto nogood;
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:221:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (vflag == 0) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:223:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (qflag || lflag)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:223:15: note: +1
+                                if (qflag || lflag)
+                                          ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:225:6: note: +1, nesting level increased to 3
+                        } else {
+                          ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:227:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                while (*ip->ib_cur++ != '\n');
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:229:11: note: +3, including nesting penalty of 2, nesting level increased to 3
+                nogood: if ((p = ip->ib_cur) > last)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:236:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (*p++ == '\n') {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:237:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (vflag) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:239:5: note: +1
+                                goto succeed;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:241:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((ip->ib_cur = p) > last)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:251:1: warning: function 'ac_matchw' has cognitive complexity of 49 (threshold 25) [readability-function-cognitive-complexity]
+ac_matchw(const char *line, size_t sz)
+^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:261:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (p == &line[sz])
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:263:2: note: +1, nesting level increased to 1
+        else {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:264:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (*p & 0200) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:265:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((n = mbtowi(&z, p, &line[sz] - p)) < 0) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:269:5: note: +1, nesting level increased to 2
+                } else {
+                  ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:274:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (;;) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:276:4: note: +2, including nesting penalty of 1, nesting level increased to 2
+                        if (c->inp == z) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:279:9: note: +1, nesting level increased to 2
+                        else if (c->link != 0) {
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:281:5: note: +1
+                                goto nstate;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:283:4: note: +1, nesting level increased to 2
+                        else {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:286:5: note: +3, including nesting penalty of 2, nesting level increased to 3
+                                if (c==0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:289:6: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                        if (c->inp == z) {
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:292:11: note: +1, nesting level increased to 4
+                                        else if (c->link != 0) {
+                                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:294:7: note: +1
+                                                goto istate;
+                                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:297:5: note: +1, nesting level increased to 3
+                                else goto nstate;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:299:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (c->out) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:300:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (xflag) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:301:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (failed || p < &line[sz])
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:301:16: note: +1
+                                if (failed || p < &line[sz])
+                                           ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:307:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (p >= &line[sz]) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:308:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (z == '\n')
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:310:4: note: +1, nesting level increased to 3
+                        else
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:312:5: note: +1, nesting level increased to 2
+                } else {
+                  ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:313:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (*p & 0200) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:314:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if ((n = mbtowi(&z, p, &line[sz] - p)) < 0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:318:6: note: +1, nesting level increased to 3
+                        } else {
+                          ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:270:8: warning: 'signed char' to 'wint_t' (aka 'unsigned int') conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+                        z = *p;
+                            ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:319:9: warning: 'signed char' to 'wint_t' (aka 'unsigned int') conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+                                z = *p;
+                                    ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:327:1: warning: function 'ac_rangew' has cognitive complexity of 63 (threshold 25) [readability-function-cognitive-complexity]
+ac_rangew(struct iblok *ip, char *last)
+^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:338:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (;;) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:340:4: note: +2, including nesting penalty of 1, nesting level increased to 2
+                        if (*p & 0200) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:341:5: note: +3, including nesting penalty of 2, nesting level increased to 3
+                                if ((n = mbtowi(&z, p, last + 1 - p)) < 0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:345:6: note: +1, nesting level increased to 2
+                        } else {
+                          ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:349:4: note: +2, including nesting penalty of 1, nesting level increased to 2
+                        if (c->inp == z) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:352:9: note: +1, nesting level increased to 2
+                        else if (c->link != 0) {
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:354:5: note: +1
+                                goto nstate;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:356:4: note: +1, nesting level increased to 2
+                        else {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:359:5: note: +3, including nesting penalty of 2, nesting level increased to 3
+                                if (c==0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:362:6: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                        if (c->inp == z) {
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:365:11: note: +1, nesting level increased to 4
+                                        else if (c->link != 0) {
+                                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:367:7: note: +1
+                                                goto istate;
+                                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:370:5: note: +1, nesting level increased to 3
+                                else goto nstate;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:372:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (c->out) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:373:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (xflag) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:375:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                while (*ep != '\n')
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:377:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if ((failed || ep > p) && vflag == 0) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:377:28: note: +1
+                                if ((failed || ep > p) && vflag == 0) {
+                                                       ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:377:17: note: +1
+                                if ((failed || ep > p) && vflag == 0) {
+                                            ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:379:6: note: +1
+                                        goto nogood;
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:382:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (vflag == 0) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:384:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (qflag || lflag)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:384:15: note: +1
+                                if (qflag || lflag)
+                                          ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:386:6: note: +1, nesting level increased to 3
+                        } else {
+                          ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:388:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                while (*ip->ib_cur++ != '\n');
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:390:11: note: +3, including nesting penalty of 2, nesting level increased to 3
+                nogood: if ((p = ip->ib_cur) > last)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:398:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (p[-n] == '\n') {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:399:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (vflag) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:401:5: note: +1
+                                goto succeed;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:403:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((ip->ib_cur = p) > last)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:346:9: warning: 'signed char' to 'wint_t' (aka 'unsigned int') conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+                                z = *p;
+                                    ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:413:1: warning: function 'cgotofn' has cognitive complexity of 58 (threshold 25) [readability-function-cognitive-complexity]
+cgotofn(void)
+^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:420:8: note: +1, including nesting penalty of 0, nesting level increased to 1
+nword:  for(;;) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:422:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (c==EOF)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:424:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (c == '\n') {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:425:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (xflag) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:426:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                for(;;) {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:427:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        if (s->inp == c) {
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:431:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        if (s->inp == 0) goto nenter;
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:432:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        if (s->link == 0) {
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:433:7: note: +6, including nesting penalty of 5, nesting level increased to 6
+                                                if (++smax >= &wcur[MAXSIZ])
+                                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:437:7: note: +1
+                                                goto nenter;
+                                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:444:5: note: +1, nesting level increased to 2
+                } else {
+                  ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:445:9: note: +3, including nesting penalty of 2, nesting level increased to 3
+                loop:   if (s->inp == c) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:449:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (s->inp == 0) goto enter;
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:450:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (s->link == 0) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:451:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (++smax >= &wcur[MAXSIZ])
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:455:5: note: +1
+                                goto enter;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:458:4: note: +1
+                        goto loop;
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:463:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        do {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:465:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (++smax >= &wcur[MAXSIZ])
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:469:34: note: +1
+        } while ((c = nextch()) != '\n' && c!=EOF);
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:470:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (xflag) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:472:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (++smax >= &wcur[MAXSIZ])
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:478:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (c != EOF)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:501:48: warning: suspicious usage of 'sizeof(A*)'; pointer to aggregate [bugprone-sizeof-expression]
+        *queue = srealloc(*queue, (*qsize += QSIZE) * sizeof **queue);
+                                                      ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:505:1: warning: function 'cfail' has cognitive complexity of 37 (threshold 25) [readability-function-cognitive-complexity]
+cfail(void)
+^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:517:7: note: +1, including nesting penalty of 0, nesting level increased to 1
+init:   if ((s->inp) != 0) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:519:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (rear >= qsize - 1)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:522:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if ((s = s->link) != 0) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:523:3: note: +1
+                goto init;
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:526:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        while (rear!=front) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:528:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (front == qsize-1)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:531:9: note: +2, including nesting penalty of 1, nesting level increased to 2
+        cloop:  if ((c = s->inp) != 0) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:535:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (front < rear) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:536:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (rear >= qsize-1)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:540:5: note: +1, nesting level increased to 3
+                                if (++rear == front)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:543:10: note: +3, including nesting penalty of 2, nesting level increased to 3
+                floop:  if (state == 0) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:547:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (state->inp == c) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:549:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if ((state->nst)->out == 1)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:551:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if ((q = q->link) != 0) goto qloop;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:553:9: note: +1, nesting level increased to 3
+                        else if ((state = state->link) != 0)
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:555:9: note: +1, nesting level increased to 3
+                        else if (bstart == 0) {
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:557:5: note: +1
+                                goto floop;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:560:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((s = s->link) != 0)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/ac.c:531:18: warning: narrowing conversion from 'int' to signed type 'char' is implementation-defined [bugprone-narrowing-conversions]
+        cloop:  if ((c = s->inp) != 0) {
+                         ^
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:33:10: error: 'iblok.h' file not found [clang-diagnostic-error]
+#include        "iblok.h"
+                ^~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:70:13: warning: invalid case style for variable 'Eflag' [readability-identifier-naming]
+extern int              Eflag;          /* use EREs */
+                        ^~~~~
+                        eflag
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:71:13: warning: invalid case style for variable 'Fflag' [readability-identifier-naming]
+extern int              Fflag;          /* use fixed strings */
+                        ^~~~~
+                        fflag

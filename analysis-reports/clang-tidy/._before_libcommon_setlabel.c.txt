@@ -1,0 +1,4 @@
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/setlabel.c:24:14: warning: invalid case style for variable 'pfmt_label__' [readability-identifier-naming]
+extern char     *pfmt_label__;
+                 ^~~~~~~~~~~~
+                 pfmt_label

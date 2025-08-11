@@ -1,0 +1,538 @@
+Checking before/ac.c ...
+before/ac.c:332:16: style: Variable 'n' is assigned a value that is never used. [unreadVariable]
+ int failed, n = 0;
+               ^
+Checking before/ac.c: __GNUC__...
+1/56 files checked 3% done
+Checking before/alloc.c ...
+2/56 files checked 4% done
+Checking before/egrep.c ...
+before/egrep.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 37 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+y.tab.c:1113:5: warning: Assignment of function parameter has no effect outside the function. Did you forget dereferencing it? [uselessAssignmentPtrArg]
+
+    ^
+egrep.y:136:31: style: Same expression on both sides of '-'. [duplicateExpression]
+
+                              ^
+egrep.y:141:58: style: Same expression on both sides of '-'. [duplicateExpression]
+
+                                                         ^
+egrep.y:151:58: style: Same expression on both sides of '-'. [duplicateExpression]
+
+                                                         ^
+egrep.y:167:34: style: Same expression on both sides of '-'. [duplicateExpression]
+
+                                 ^
+egrep.y:172:35: style: Same expression on both sides of '-'. [duplicateExpression]
+
+                                  ^
+egrep.y:192:57: style: Same expression on both sides of '-'. [duplicateExpression]
+
+                                                        ^
+egrep.y:197:58: style: Same expression on both sides of '-'. [duplicateExpression]
+
+                                                         ^
+egrep.y:344:15: style: The scope of the variable 'i' can be reduced. [variableScope]
+
+              ^
+egrep.y:361:22: style: The scope of the variable 'k' can be reduced. [variableScope]
+
+                     ^
+egrep.y:364:6: style: The scope of the variable 'curpos' can be reduced. [variableScope]
+
+     ^
+egrep.y:568:22: style: The scope of the variable 'nstat' can be reduced. [variableScope]
+
+                     ^
+egrep.y:597:22: style: The scope of the variable 'nstat' can be reduced. [variableScope]
+
+                     ^
+Checking before/egrep.c: ENABLE_NLS;YYENABLE_NLS...
+Checking before/egrep.c: YYENABLE_NLS...
+Checking before/egrep.c: YYERROR_VERBOSE...
+y.tab.c:901:5: style: 'continue' is redundant since it is the last statement in a loop. [redundantContinue]
+
+    ^
+y.tab.c:928:5: style: 'continue' is redundant since it is the last statement in a loop. [redundantContinue]
+
+    ^
+Checking before/egrep.c: YYERROR_VERBOSE=0...
+y.tab.c:1344:0: information: Skipping configuration 'YYLEX_PARAM' since the value of 'YYLEX_PARAM' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+
+^
+Checking before/egrep.c: YYLEX_PARAM...
+Checking before/egrep.c: YYLTYPE_IS_TRIVIAL...
+y.tab.c:1165:0: information: Skipping configuration 'YYPARSE_PARAM' since the value of 'YYPARSE_PARAM' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+
+^
+y.tab.c:1166:0: information: Skipping configuration 'YYPARSE_PARAM' since the value of 'YYPARSE_PARAM' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+
+^
+Checking before/egrep.c: YYPARSE_PARAM...
+y.tab.c:1129:0: information: Skipping configuration 'YYPARSE_PARAM;_MSC_VER;__C99__FUNC__;__STDC__' since the value of 'YYPARSE_PARAM' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+
+^
+y.tab.c:1162:0: information: Skipping configuration 'YYPARSE_PARAM;_MSC_VER;__C99__FUNC__;__STDC__' since the value of 'YYPARSE_PARAM' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+
+^
+Checking before/egrep.c: YYPARSE_PARAM;_MSC_VER;__C99__FUNC__;__STDC__...
+y.tab.c:1129:0: information: Skipping configuration 'YYPARSE_PARAM;__STDC__' since the value of 'YYPARSE_PARAM' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+
+^
+y.tab.c:1162:0: information: Skipping configuration 'YYPARSE_PARAM;__STDC__' since the value of 'YYPARSE_PARAM' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+
+^
+Checking before/egrep.c: YYPARSE_PARAM;__STDC__...
+Checking before/egrep.c: YYPRINT...
+y.tab.c:1274:0: information: Skipping configuration 'YYSTACK_USE_ALLOCA;_AIX;yyoverflow' since the value of 'yyoverflow' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+
+^
+Checking before/egrep.c: YYSTACK_USE_ALLOCA;_AIX;yyoverflow...
+3/56 files checked 25% done
+Checking before/fgrep.c ...
+4/56 files checked 25% done
+Checking before/ggrep.c ...
+5/56 files checked 26% done
+Checking before/grep.c ...
+before/grep.c:268:3: warning: %llu in format string (no. 1) requires 'unsigned long long' but the argument type is 'signed long long'. [invalidPrintfArgType_uint]
+  printf("%llu:", (long long)bcnt);
+  ^
+before/grep.c:270:3: warning: %llu in format string (no. 1) requires 'unsigned long long' but the argument type is 'signed long long'. [invalidPrintfArgType_uint]
+  printf("%llu:", (long long)lineno);
+  ^
+before/grep.c:472:3: warning: %llu in format string (no. 1) requires 'unsigned long long' but the argument type is 'signed long long'. [invalidPrintfArgType_uint]
+  printf("%llu\n", (long long)lmatch);
+  ^
+before/grep.c:445:12: style: Variable 'sz' is reassigned a value before the old one has been used. [redundantAssignment]
+   if ((sz = cp - ip->ib_cur) > 0) {
+           ^
+before/grep.c:435:9: note: sz is assigned
+     sz = oldsz;
+        ^
+before/grep.c:445:12: note: sz is overwritten
+   if ((sz = cp - ip->ib_cur) > 0) {
+           ^
+before/grep.c:205:13: style: The scope of the variable 'rd' can be reduced. [variableScope]
+    ssize_t rd, wo, wt;
+            ^
+before/grep.c:205:17: style: The scope of the variable 'wo' can be reduced. [variableScope]
+    ssize_t rd, wo, wt;
+                ^
+before/grep.c:205:21: style: The scope of the variable 'wt' can be reduced. [variableScope]
+    ssize_t rd, wo, wt;
+                    ^
+before/grep.c:528:21: style: Local variable 'i' shadows outer variable [shadowVariable]
+   int pend, psize, i;
+                    ^
+before/grep.c:488:6: note: Shadowed declaration
+ int i;
+     ^
+before/grep.c:528:21: note: Shadow variable
+   int pend, psize, i;
+                    ^
+before/grep.c:490:48: error: Uninitialized variable: &st [uninitvar]
+ if (rflag && fn && (level ? rflag : stat)(fn, &st) == 0) {
+                                               ^
+before/grep.c:209:9: style: Variable 'wo' is assigned a value that is never used. [unreadVariable]
+     wo = wt = 0;
+        ^
+before/grep.c:414:8: style: Variable 'sz' is assigned a value that is never used. [unreadVariable]
+    sz = 0;
+       ^
+Checking before/grep.c: LONGLONG...
+before/grep.c:516:0: information: Skipping configuration 'S_IFSOCK' since the value of 'S_IFSOCK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  case S_IFSOCK:
+^
+Checking before/grep.c: S_IFSOCK...
+Checking before/grep.c: __GLIBC__...
+6/56 files checked 32% done
+Checking before/grid.c ...
+Checking before/grid.c: __GNUC__...
+7/56 files checked 33% done
+Checking before/libcommon/CHECK.c ...
+Checking before/libcommon/CHECK.c: __APPLE__...
+Checking before/libcommon/CHECK.c: __DragonFly__...
+Checking before/libcommon/CHECK.c: __FreeBSD__...
+Checking before/libcommon/CHECK.c: __NetBSD__...
+Checking before/libcommon/CHECK.c: __OpenBSD__...
+Checking before/libcommon/CHECK.c: __UCLIBC__...
+Checking before/libcommon/CHECK.c: __dietlibc__...
+8/56 files checked 33% done
+Checking before/libcommon/asciitype.c ...
+9/56 files checked 34% done
+Checking before/libcommon/getdir.c ...
+Checking before/libcommon/getdir.c: DT_WHT...
+Checking before/libcommon/getdir.c: _AIX;__APPLE__;__DragonFly__;__FreeBSD__;__GLIBC__;__NetBSD__;__OpenBSD__...
+Checking before/libcommon/getdir.c: _AIX;__APPLE__;__DragonFly__;__FreeBSD__;__GLIBC__;__NetBSD__;__OpenBSD__;__APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__...
+Checking before/libcommon/getdir.c: __APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__...
+Checking before/libcommon/getdir.c: __DragonFly__...
+Checking before/libcommon/getdir.c: __LP64__;__hpux...
+Checking before/libcommon/getdir.c: __UCLIBC__...
+Checking before/libcommon/getdir.c: __dietlibc__...
+Checking before/libcommon/getdir.c: __hpux...
+10/56 files checked 36% done
+Checking before/libcommon/getopt.c ...
+before/libcommon/getopt.c:56:13: warning: Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead. [allocaCalled]
+ bp = buf = alloca(strlen(s) + strlen(msg) + 2);
+            ^
+Checking before/libcommon/getopt.c: __APPLE__...
+11/56 files checked 37% done
+Checking before/libcommon/gmatch.c ...
+before/libcommon/gmatch.c:83:23: style: Clarify calculation precedence for '^' and '?'. [clarifyCalculation]
+    return (ok ^ excl ? gmatch(s, p) : 0);
+                      ^
+Checking before/libcommon/gmatch.c: __GNUC__...
+Checking before/libcommon/gmatch.c: __GNUC__;__IBMC__;__INTEL_COMPILER;__SUNPRO_C;__USLC__...
+12/56 files checked 39% done
+Checking before/libcommon/ib_alloc.c ...
+Checking before/libcommon/ib_alloc.c: _AIX;__APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__dietlibc__...
+13/56 files checked 39% done
+Checking before/libcommon/ib_close.c ...
+14/56 files checked 40% done
+Checking before/libcommon/ib_free.c ...
+15/56 files checked 40% done
+Checking before/libcommon/ib_getlin.c ...
+before/libcommon/ib_getlin.c:33:9: style: The scope of the variable 'sz' can be reduced. [variableScope]
+ size_t sz, llen = 0, nllen;
+        ^
+16/56 files checked 41% done
+Checking before/libcommon/ib_getw.c ...
+before/libcommon/ib_getw.c:76:12: style: Variable 'n' is assigned a value that is never used. [unreadVariable]
+  *len = n = 1;
+           ^
+Checking before/libcommon/ib_getw.c: __GNUC__;__IBMC__;__INTEL_COMPILER;__SUNPRO_C;__USLC__...
+17/56 files checked 42% done
+Checking before/libcommon/ib_open.c ...
+before/libcommon/ib_open.c:38:10: style: The scope of the variable 'err' can be reduced. [variableScope]
+ int fd, err;
+         ^
+18/56 files checked 42% done
+Checking before/libcommon/ib_popen.c ...
+before/libcommon/ib_popen.c:65:2: warning: Either the condition '(ip=ib_alloc(fd[0],blksize))==NULL' is redundant or there is possible null pointer dereference: ip. [nullPointerRedundantCheck]
+ ip->ib_pid = pid;
+ ^
+before/libcommon/ib_popen.c:60:38: note: Assuming that condition '(ip=ib_alloc(fd[0],blksize))==NULL' is not redundant
+ if ((ip = ib_alloc(fd[0], blksize)) == NULL) {
+                                     ^
+before/libcommon/ib_popen.c:65:2: note: Null pointer dereference
+ ip->ib_pid = pid;
+ ^
+before/libcommon/ib_popen.c:40:13: style: The scope of the variable 'err' can be reduced. [variableScope]
+ int fd[2], err;
+            ^
+19/56 files checked 43% done
+Checking before/libcommon/ib_read.c ...
+20/56 files checked 43% done
+Checking before/libcommon/ib_seek.c ...
+21/56 files checked 44% done
+Checking before/libcommon/memalign.c ...
+Checking before/libcommon/memalign.c: _AIX;__APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__dietlibc__...
+22/56 files checked 45% done
+Checking before/libcommon/oblok.c ...
+before/libcommon/oblok.c:134:10: style: The scope of the variable 'wo' can be reduced. [variableScope]
+ ssize_t wo, wt = 0;
+         ^
+before/libcommon/oblok.c:79:19: style: Parameter 'op' can be declared as pointer to const [constParameter]
+del(struct oblok *op)
+                  ^
+Checking before/libcommon/oblok.c: _AIX;__APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__dietlibc__...
+23/56 files checked 46% done
+Checking before/libcommon/pathconf.c ...
+Checking before/libcommon/pathconf.c: __dietlibc__...
+24/56 files checked 47% done
+Checking before/libcommon/pfmt.c ...
+before/libcommon/pfmt.c:30:44: style: inconclusive: Function 'pfmt' argument 3 names different: declaration 'format' definition 'fmt'. [funcArgNamesDifferent]
+pfmt(FILE *stream, long flags, const char *fmt, ...)
+                                           ^
+before/libcommon/pfmt.h:26:55: note: Function 'pfmt' argument 3 names different: declaration 'format' definition 'fmt'.
+extern int pfmt(FILE *stream, long flags, const char *format, ...);
+                                                      ^
+before/libcommon/pfmt.c:30:44: note: Function 'pfmt' argument 3 names different: declaration 'format' definition 'fmt'.
+pfmt(FILE *stream, long flags, const char *fmt, ...)
+                                           ^
+25/56 files checked 47% done
+Checking before/libcommon/pfmt_label.c ...
+26/56 files checked 47% done
+Checking before/libcommon/regexpr.c ...
+before/libcommon/regexp.h:278:18: style: Condition 'len<0' is always true [knownConditionTrueFalse]
+  } else if (len < 0 && max > 0)
+                 ^
+before/libcommon/regexp.h:273:38: note: Assuming that condition '(len=mbtowc(&wc,p,mb-p))>=0' is not redundant
+  if ((len = mbtowc(&wc, p, mb - p)) >= 0) {
+                                     ^
+before/libcommon/regexp.h:278:18: note: Condition 'len<0' is always true
+  } else if (len < 0 && max > 0)
+                 ^
+before/libcommon/regexp.h:361:16: style: Condition 'bracketp>bracket' is always false [knownConditionTrueFalse]
+  if (bracketp > bracket)
+               ^
+before/libcommon/regexp.h:353:11: note: bracketp is assigned 'bracket' here.
+ bracketp = bracket;
+          ^
+before/libcommon/regexp.h:359:15: note: Assuming condition is false
+  if(*ep == 0 && !sed)
+              ^
+before/libcommon/regexp.h:361:16: note: Condition 'bracketp>bracket' is always false
+  if (bracketp > bracket)
+               ^
+before/libcommon/regexp.h:352:9: style: Redundant initialization for 'lastep'. The initialized value is overwritten before it is read. [redundantInitialization]
+ lastep = 0;
+        ^
+before/libcommon/regexp.h:339:15: note: lastep is initialized
+ char *lastep = instring;
+              ^
+before/libcommon/regexp.h:352:9: note: lastep is overwritten
+ lastep = 0;
+        ^
+before/libcommon/regexp.h:267:6: style: The scope of the variable 'len' can be reduced. [variableScope]
+ int len, max = 0;
+     ^
+before/libcommon/regexp.h:356:4: style: Variable 'sp' is assigned a value that is never used. [unreadVariable]
+   UNGETC(c);
+   ^
+before/libcommon/regexp.h:390:5: style: Variable 'sp' is assigned a value that is never used. [unreadVariable]
+    UNGETC(c);
+    ^
+Checking before/libcommon/regexpr.c: REGEXP_H_USED_FROM_VI;__dietlibc__...
+Checking before/libcommon/regexpr.c: REGEXP_H_VI_BACKSLASH...
+Checking before/libcommon/regexpr.c: __GNUC__...
+27/56 files checked 48% done
+Checking before/libcommon/setlabel.c ...
+before/libcommon/setlabel.c:30:8: style: The scope of the variable 'lp' can be reduced. [variableScope]
+ char *lp;
+       ^
+28/56 files checked 49% done
+Checking before/libcommon/setuxlabel.c ...
+before/libcommon/setuxlabel.c:32:8: style: The scope of the variable 'lp' can be reduced. [variableScope]
+ char *lp, *mp;
+       ^
+before/libcommon/setuxlabel.c:32:13: style: The scope of the variable 'mp' can be reduced. [variableScope]
+ char *lp, *mp;
+            ^
+29/56 files checked 49% done
+Checking before/libcommon/sfile.c ...
+Checking before/libcommon/sfile.c: __linux__...
+before/libcommon/sfile.c:36:11: style: inconclusive: Function 'sfile' argument 1 names different: declaration 'dst_fd' definition 'dfd'. [funcArgNamesDifferent]
+sfile(int dfd, int sfd, mode_t mode, long long count)
+          ^
+before/libcommon/sfile.h:39:28: note: Function 'sfile' argument 1 names different: declaration 'dst_fd' definition 'dfd'.
+extern long long sfile(int dst_fd, int src_fd, mode_t src_mode,
+                           ^
+before/libcommon/sfile.c:36:11: note: Function 'sfile' argument 1 names different: declaration 'dst_fd' definition 'dfd'.
+sfile(int dfd, int sfd, mode_t mode, long long count)
+          ^
+before/libcommon/sfile.c:36:20: style: inconclusive: Function 'sfile' argument 2 names different: declaration 'src_fd' definition 'sfd'. [funcArgNamesDifferent]
+sfile(int dfd, int sfd, mode_t mode, long long count)
+                   ^
+before/libcommon/sfile.h:39:40: note: Function 'sfile' argument 2 names different: declaration 'src_fd' definition 'sfd'.
+extern long long sfile(int dst_fd, int src_fd, mode_t src_mode,
+                                       ^
+before/libcommon/sfile.c:36:20: note: Function 'sfile' argument 2 names different: declaration 'src_fd' definition 'sfd'.
+sfile(int dfd, int sfd, mode_t mode, long long count)
+                   ^
+before/libcommon/sfile.c:36:32: style: inconclusive: Function 'sfile' argument 3 names different: declaration 'src_mode' definition 'mode'. [funcArgNamesDifferent]
+sfile(int dfd, int sfd, mode_t mode, long long count)
+                               ^
+before/libcommon/sfile.h:39:55: note: Function 'sfile' argument 3 names different: declaration 'src_mode' definition 'mode'.
+extern long long sfile(int dst_fd, int src_fd, mode_t src_mode,
+                                                      ^
+before/libcommon/sfile.c:36:32: note: Function 'sfile' argument 3 names different: declaration 'src_mode' definition 'mode'.
+sfile(int dfd, int sfd, mode_t mode, long long count)
+                               ^
+before/libcommon/sfile.c:36:48: style: inconclusive: Function 'sfile' argument 4 names different: declaration 'src_size' definition 'count'. [funcArgNamesDifferent]
+sfile(int dfd, int sfd, mode_t mode, long long count)
+                                               ^
+before/libcommon/sfile.h:40:15: note: Function 'sfile' argument 4 names different: declaration 'src_size' definition 'count'.
+    long long src_size);
+              ^
+before/libcommon/sfile.c:36:48: note: Function 'sfile' argument 4 names different: declaration 'src_size' definition 'count'.
+sfile(int dfd, int sfd, mode_t mode, long long count)
+                                               ^
+30/56 files checked 50% done
+Checking before/libcommon/sighold.c ...
+Checking before/libcommon/sighold.c: __APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__dietlibc__...
+31/56 files checked 51% done
+Checking before/libcommon/sigignore.c ...
+Checking before/libcommon/sigignore.c: __APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__dietlibc__...
+32/56 files checked 51% done
+Checking before/libcommon/signal.c ...
+Checking before/libcommon/signal.c: __APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__dietlibc__...
+33/56 files checked 52% done
+Checking before/libcommon/sigpause.c ...
+Checking before/libcommon/sigpause.c: __APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__dietlibc__...
+34/56 files checked 53% done
+Checking before/libcommon/sigrelse.c ...
+Checking before/libcommon/sigrelse.c: __APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__dietlibc__...
+35/56 files checked 53% done
+Checking before/libcommon/sigset.c ...
+Checking before/libcommon/sigset.c: __APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__dietlibc__...
+36/56 files checked 54% done
+Checking before/libcommon/strtol.c ...
+Checking before/libcommon/strtol.c: _AIX;__FreeBSD__;__hpux;_INCLUDE__STDC_A1_SOURCE...
+Checking before/libcommon/strtol.c: _AIX;__FreeBSD__;__hpux;__hpux;_INCLUDE__STDC_A1_SOURCE...
+Checking before/libcommon/strtol.c: _INCLUDE__STDC_A1_SOURCE...
+37/56 files checked 55% done
+Checking before/libcommon/sysv3.c ...
+38/56 files checked 55% done
+Checking before/libcommon/utmpx.c ...
+Checking before/libcommon/utmpx.c: __APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__UCLIBC__;__dietlibc__...
+Checking before/libcommon/utmpx.c: __APPLE__;__DragonFly__;__FreeBSD__;__NetBSD__;__OpenBSD__;__UCLIBC__;__dietlibc__;__dietlibc__...
+39/56 files checked 57% done
+Checking before/libcommon/vpfmt.c ...
+before/libcommon/vpfmt.c:57:45: style: inconclusive: Function 'vpfmt' argument 3 names different: declaration 'format' definition 'fmt'. [funcArgNamesDifferent]
+vpfmt(FILE *stream, long flags, const char *fmt, va_list ap)
+                                            ^
+before/libcommon/pfmt.h:30:56: note: Function 'vpfmt' argument 3 names different: declaration 'format' definition 'fmt'.
+extern int vpfmt(FILE *stream, long flags, const char *format, va_list ap);
+                                                       ^
+before/libcommon/vpfmt.c:57:45: note: Function 'vpfmt' argument 3 names different: declaration 'format' definition 'fmt'.
+vpfmt(FILE *stream, long flags, const char *fmt, va_list ap)
+                                            ^
+40/56 files checked 57% done
+Checking before/libuxre/_collelem.c ...
+Checking before/libuxre/_collelem.c: DSHLIB...
+41/56 files checked 59% done
+Checking before/libuxre/_collmult.c ...
+Checking before/libuxre/_collmult.c: DSHLIB...
+42/56 files checked 59% done
+Checking before/libuxre/bracket.c ...
+before/libuxre/bracket.c:85:6: style: The scope of the variable 'ret' can be reduced. [variableScope]
+ int ret;
+     ^
+Checking before/libuxre/bracket.c: USHRT_MAX=65535...
+43/56 files checked 66% done
+Checking before/libuxre/onefile.c ...
+before/libuxre/regdfa.c:490:9: style: The scope of the variable 'np' can be reduced. [variableScope]
+ size_t np;
+        ^
+before/libuxre/regdfa.c:521:23: style: The scope of the variable 's' can be reduced. [variableScope]
+ const unsigned char *s;
+                      ^
+before/libuxre/regdfa.c:809:6: style: The scope of the variable 'nst' can be reduced. [variableScope]
+ int nst, st;
+     ^
+before/libuxre/regdfa.c:834:9: style: The scope of the variable 'nst' can be reduced. [variableScope]
+ int i, nst, st, mb_cur_max;
+        ^
+before/libuxre/regnfa.c:442:15: style: The scope of the variable 'spp' can be reduced. [variableScope]
+ Stack *sp, **spp;
+              ^
+before/libuxre/regnfa.c:443:6: style: The scope of the variable 'i' can be reduced. [variableScope]
+ int i;
+     ^
+before/libuxre/regnfa.c:608:6: style: The scope of the variable 'k' can be reduced. [variableScope]
+ int k;
+     ^
+before/libuxre/regparse.c:846:13: style: The scope of the variable 'rp' can be reduced. [variableScope]
+ Tree *lp, *rp;
+            ^
+before/libuxre/regparse.c:872:13: style: The scope of the variable 'rp' can be reduced. [variableScope]
+ Tree *lp, *rp;
+            ^
+before/libuxre/regcomp.c:37:6: style: Local variable 'lex' shadows outer function [shadowFunction]
+ Lex lex;
+     ^
+before/libuxre/regparse.c:98:1: note: Shadowed declaration
+lex(Lex *lxp)
+^
+before/libuxre/regcomp.c:37:6: note: Shadow variable
+ Lex lex;
+     ^
+Checking before/libuxre/onefile.c: DSHLIB...
+Checking before/libuxre/onefile.c: REGDEBUG...
+before/libuxre/regparse.c:1078:4: warning: %u in format string (no. 1) requires 'unsigned int' but the argument type is 'signed int'. [invalidPrintfArgType_uint]
+   sprintf(buf, "UNK=%u", tp->op);
+   ^
+Checking before/libuxre/onefile.c: USHRT_MAX=65535...
+Checking before/libuxre/onefile.c: __GNUC__...
+Checking before/libuxre/onefile.c: notdef...
+44/56 files checked 66% done
+Checking before/libuxre/regcomp.c ...
+45/56 files checked 67% done
+Checking before/libuxre/regdfa.c ...
+46/56 files checked 74% done
+Checking before/libuxre/regerror.c ...
+before/libuxre/regerror.c:76:5: style: Variable 'i' is assigned a value that is never used. [unreadVariable]
+  i = unk.index;
+    ^
+before/libuxre/regerror.c:81:5: style: Variable 'i' is assigned a value that is never used. [unreadVariable]
+  i = msgs[err - REG_ENOSYS].index;
+    ^
+47/56 files checked 75% done
+Checking before/libuxre/regexec.c ...
+48/56 files checked 76% done
+Checking before/libuxre/regfree.c ...
+49/56 files checked 76% done
+Checking before/libuxre/regnfa.c ...
+50/56 files checked 85% done
+Checking before/libuxre/regparse.c ...
+Checking before/libuxre/regparse.c: REGDEBUG...
+51/56 files checked 92% done
+Checking before/libuxre/stubs.c ...
+Checking before/libuxre/stubs.c: DSHLIB...
+Checking before/libuxre/stubs.c: __GNUC__...
+Checking before/libuxre/stubs.c: notdef...
+52/56 files checked 93% done
+Checking before/plist.c ...
+before/plist.c:87:8: style: Suspicious condition (assignment + comparison); Clarify expression with parentheses. [clarifyCondition]
+   if ((nl = (ep = strchr(cp, '\n')) != NULL) != 0)
+       ^
+before/plist.c:123:7: style: Suspicious condition (assignment + comparison); Clarify expression with parentheses. [clarifyCondition]
+  if ((nl = cp[len - 1] == '\n') != 0)
+      ^
+before/plist.c:75:6: style: The scope of the variable 'nl' can be reduced. [variableScope]
+ int nl;
+     ^
+before/plist.c:109:6: style: The scope of the variable 'nl' can be reduced. [variableScope]
+ int nl;
+     ^
+before/plist.c:188:17: style: The scope of the variable 'sol' can be reduced. [variableScope]
+ register char *sol, *eol; /* start and end of line */
+                ^
+before/plist.c:186:33: style: Parameter 'last' can be declared as pointer to const [constParameter]
+outline(struct iblok *ip, char *last, size_t moff)
+                                ^
+53/56 files checked 95% done
+Checking before/rcomp.c ...
+Checking before/rcomp.c: UXRE...
+54/56 files checked 98% done
+Checking before/sus.c ...
+Checking before/sus.c: SU3...
+Checking before/sus.c: SU3;__GNUC__...
+55/56 files checked 99% done
+Checking before/svid3.c ...
+56/56 files checked 100% done
+before/ggrep.c:133:20: error: Null pointer dereference: pat [ctunullpointer]
+ long len = strlen(pat);
+                   ^
+before/grep.c:706:12: note: Calling function patstring, 1st argument is null
+  patstring(NULL);
+           ^
+before/ggrep.c:133:20: note: Dereferencing argument pat that is null
+ long len = strlen(pat);
+                   ^
+before/libuxre/bracket.c:215:12: error: Using argument mcp that points at uninitialized variable mcbuf [ctuuninitvar]
+ if ((wc = mcp->ch) != '\0')
+           ^
+before/libuxre/bracket.c:308:17: note: Calling function mcce, 1st argument is uninitialized
+ if ((err = mcce(&mcbuf, ELEM_BADCHAR, s, mb_cur_max, 1)) != 0)
+                ^
+before/libuxre/bracket.c:215:12: note: Using argument mcp
+ if ((wc = mcp->ch) != '\0')
+           ^
+before/libcommon/setlabel.c:27:0: style: The function 'setlabel' is never used. [unusedFunction]
+setlabel(const char *s)
+^
+before/libcommon/setuxlabel.c:29:0: style: The function 'setuxlabel' is never used. [unusedFunction]
+setuxlabel(const char *s)
+^
+before/libcommon/sfile.c:95:0: style: The function 'sfile' is never used. [unusedFunction]
+sfile(int dfd, int sfd, mode_t mode, long long count)
+^
+before/libuxre/regfree.c:34:0: style: The function 'regfree' is never used. [unusedFunction]
+regfree(regex_t *ep)
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+

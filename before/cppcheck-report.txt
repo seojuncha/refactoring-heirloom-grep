@@ -1,6 +1,0 @@
-grep.c:268,warning,invalidPrintfArgType_uint,%llu in format string (no. 1) requires 'unsigned long long' but the argument type is 'signed long long'.
-grep.c:270,warning,invalidPrintfArgType_uint,%llu in format string (no. 1) requires 'unsigned long long' but the argument type is 'signed long long'.
-grep.c:472,warning,invalidPrintfArgType_uint,%llu in format string (no. 1) requires 'unsigned long long' but the argument type is 'signed long long'.
-grep.c:545,warning,nullPointerOutOfMemory,If memory allocation fails, then there is a possible null pointer dereference: path
-grep.c:546,warning,nullPointerOutOfMemory,If memory allocation fails, then there is a possible null pointer dereference: path
-grep.c:490,error,uninitvar,Uninitialized variable: &st

@@ -1,0 +1,24 @@
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/ib_popen.c:65:13: warning: Access to field 'ib_pid' results in a dereference of a null pointer (loaded from variable 'ip') [clang-analyzer-core.NullDereference]
+        ip->ib_pid = pid;
+        ~~         ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/ib_popen.c:44:6: note: Assuming the condition is false
+        if (pipe(fd) < 0)
+            ^~~~~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/ib_popen.c:44:2: note: Taking false branch
+        if (pipe(fd) < 0)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/ib_popen.c:46:2: note: 'Default' branch taken. Execution continues on line 59
+        switch (pid = fork()) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/ib_popen.c:60:7: note: Value assigned to 'ip'
+        if ((ip = ib_alloc(fd[0], blksize)) == NULL) {
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/ib_popen.c:60:6: note: Assuming pointer value is null
+        if ((ip = ib_alloc(fd[0], blksize)) == NULL) {
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/ib_popen.c:60:2: note: Taking true branch
+        if ((ip = ib_alloc(fd[0], blksize)) == NULL) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/ib_popen.c:65:13: note: Access to field 'ib_pid' results in a dereference of a null pointer (loaded from variable 'ip')
+        ip->ib_pid = pid;
+        ~~         ^

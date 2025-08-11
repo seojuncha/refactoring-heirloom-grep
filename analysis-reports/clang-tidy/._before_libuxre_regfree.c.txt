@@ -1,0 +1,26 @@
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/colldata.h:57:10: error: 'wcharm.h' file not found with <angled> include; use "quotes" instead [clang-diagnostic-error]
+#include <wcharm.h>
+         ^~~~~~~~~~
+         "wcharm.h"
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/re.h:40:10: error: 'colldata.h' file not found with <angled> include; use "quotes" instead [clang-diagnostic-error]
+#include <colldata.h>
+         ^~~~~~~~~~~~
+         "colldata.h"
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regfree.c:36:10: error: no member named 're_flags' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+        if (ep->re_flags & REG_DFA)
+            ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regfree.c:37:25: error: no member named 're_dfa' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                libuxre_regdeldfa(ep->re_dfa);
+                                  ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regfree.c:38:10: error: no member named 're_flags' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+        if (ep->re_flags & REG_NFA)
+            ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regfree.c:39:25: error: no member named 're_nfa' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                libuxre_regdelnfa(ep->re_nfa);
+                                  ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regfree.c:40:10: error: no member named 're_col' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+        if (ep->re_col != 0)
+            ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regfree.c:41:32: error: no member named 're_col' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                (void)libuxre_lc_collate(ep->re_col);
+                                         ~~  ^

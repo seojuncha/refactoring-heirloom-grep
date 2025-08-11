@@ -1,0 +1,105 @@
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:97:10: warning: 2 adjacent parameters of 'ob_alloc' of convertible types are easily swapped by mistake [bugprone-easily-swappable-parameters]
+ob_alloc(int fd, enum ob_mode bf)
+         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:97:14: note: the first parameter in the range is 'fd'
+ob_alloc(int fd, enum ob_mode bf)
+             ^~
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:97:31: note: the last parameter in the range is 'bf'
+ob_alloc(int fd, enum ob_mode bf)
+                              ^~
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:97:18: note: 'int' and 'enum ob_mode' may be implicitly converted
+ob_alloc(int fd, enum ob_mode bf)
+                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:145:9: warning: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'ssize_t' (aka 'long') is implementation-defined [bugprone-narrowing-conversions]
+        return sz;
+               ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:149:1: warning: function 'ob_write' has cognitive complexity of 55 (threshold 25) [readability-function-cognitive-complexity]
+ob_write(struct oblok *op, const char *data, size_t sz)
+^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:154:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        switch (op->ob_bf) {
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:158:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (wrt != sz) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:160:25: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        writerr(op, sz, wrt>0?wrt:0);
+                                             ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:167:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                while (op->ob_pos + sz > (OBLOK)) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:170:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (op->ob_pos > 0) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:173:6: note: +1, nesting level increased to 3
+                        } else
+                          ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:176:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (wrt != (OBLOK)) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:178:31: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                writerr(op, (OBLOK), wrt>0?wrt:0);
+                                                          ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:184:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (op->ob_bf == OB_LBF) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:188:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        while (cp < &data[sz]) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:189:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (*cp == '\n') {
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:192:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        if (op->ob_pos > 0) {
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:198:8: note: +1, nesting level increased to 5
+                                        } else
+                                          ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:202:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        if (wrt != op->ob_pos + di) {
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:204:28: note: +6, including nesting penalty of 5, nesting level increased to 6
+                                                writerr(op, di, wrt>0?wrt:0);
+                                                                     ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:214:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (sz == (OBLOK)) {
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:217:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (wrt != sz) {
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:219:26: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                writerr(op, sz, wrt>0?wrt:0);
+                                                     ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:222:10: note: +1, nesting level increased to 2
+                } else if (sz) {
+                       ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:160:16: warning: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                        writerr(op, sz, wrt>0?wrt:0);
+                                    ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:160:26: warning: narrowing conversion from 'ssize_t' (aka 'long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                        writerr(op, sz, wrt>0?wrt:0);
+                                              ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:178:32: warning: narrowing conversion from 'ssize_t' (aka 'long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                                writerr(op, (OBLOK), wrt>0?wrt:0);
+                                                           ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:204:19: warning: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                                                writerr(op, di, wrt>0?wrt:0);
+                                                            ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:204:29: warning: narrowing conversion from 'ssize_t' (aka 'long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                                                writerr(op, di, wrt>0?wrt:0);
+                                                                      ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:219:17: warning: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                                writerr(op, sz, wrt>0?wrt:0);
+                                            ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:219:27: warning: narrowing conversion from 'ssize_t' (aka 'long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                                writerr(op, sz, wrt>0?wrt:0);
+                                                      ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:224:18: warning: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                        op->ob_pos += sz;
+                                      ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:226:10: warning: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'ssize_t' (aka 'long') is implementation-defined [bugprone-narrowing-conversions]
+                return isz;
+                       ^
+/home/sj/1/refactoring-heirloom-grep/before/libcommon/oblok.c:243:34: warning: narrowing conversion from 'ssize_t' (aka 'long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                        writerr(op, op->ob_pos, wrt>0?wrt:0);
+                                                      ^

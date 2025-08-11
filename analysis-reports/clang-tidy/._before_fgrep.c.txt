@@ -1,0 +1,11 @@
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:33:10: error: 'iblok.h' file not found [clang-diagnostic-error]
+#include        "iblok.h"
+                ^~~~~~~~~
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:70:13: warning: invalid case style for variable 'Eflag' [readability-identifier-naming]
+extern int              Eflag;          /* use EREs */
+                        ^~~~~
+                        eflag
+/home/sj/1/refactoring-heirloom-grep/before/grep.h:71:13: warning: invalid case style for variable 'Fflag' [readability-identifier-naming]
+extern int              Fflag;          /* use fixed strings */
+                        ^~~~~
+                        fflag

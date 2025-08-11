@@ -1,0 +1,451 @@
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/colldata.h:57:10: error: 'wcharm.h' file not found with <angled> include; use "quotes" instead [clang-diagnostic-error]
+#include <wcharm.h>
+         ^~~~~~~~~~
+         "wcharm.h"
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/re.h:40:10: error: 'colldata.h' file not found with <angled> include; use "quotes" instead [clang-diagnostic-error]
+#include <colldata.h>
+         ^~~~~~~~~~~~
+         "colldata.h"
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:59:22: error: no member named 're_dfa' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                np->left.pos = ep->re_dfa->nposn++;
+                               ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:101:1: warning: function 'findposn' has cognitive complexity of 60 (threshold 25) [readability-function-cognitive-complexity]
+findposn(regex_t *ep, Tree *tp, int mb_cur_max)
+^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:107:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        switch (tp->op)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:110:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (ep->re_flags & REG_ICASE
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:111:4: note: +1
+                        && (wc = to_upper(tp->op)) != tp->op)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:111:13: note: +2, including nesting penalty of 1, nesting level increased to 2
+                        && (wc = to_upper(tp->op)) != tp->op)
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:59:38: note: expanded from macro 'to_upper'
+#define to_upper(ch)    (mb_cur_max > 1 ? towupper(ch) : toupper(ch))
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:111:13: note: nesting level increased to 3
+                        && (wc = to_upper(tp->op)) != tp->op)
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:59:55: note: expanded from macro 'to_upper'
+#define to_upper(ch)    (mb_cur_max > 1 ? towupper(ch) : toupper(ch))
+                                                         ^
+/usr/include/ctype.h:221:22: note: expanded from macro 'toupper'
+#  define toupper(c)    __tobody (c, toupper, *__ctype_toupper_loc (), (c))
+                        ^
+/usr/include/ctype.h:157:4: note: expanded from macro '__tobody'
+   ({ int __res;                                                              \
+   ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:111:13: note: +4, including nesting penalty of 3, nesting level increased to 4
+                        && (wc = to_upper(tp->op)) != tp->op)
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:59:55: note: expanded from macro 'to_upper'
+#define to_upper(ch)    (mb_cur_max > 1 ? towupper(ch) : toupper(ch))
+                                                         ^
+/usr/include/ctype.h:221:22: note: expanded from macro 'toupper'
+#  define toupper(c)    __tobody (c, toupper, *__ctype_toupper_loc (), (c))
+                        ^
+/usr/include/ctype.h:158:7: note: expanded from macro '__tobody'
+      if (sizeof (c) > 1)                                                     \
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:111:13: note: +5, including nesting penalty of 4, nesting level increased to 5
+                        && (wc = to_upper(tp->op)) != tp->op)
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:59:55: note: expanded from macro 'to_upper'
+#define to_upper(ch)    (mb_cur_max > 1 ? towupper(ch) : toupper(ch))
+                                                         ^
+/usr/include/ctype.h:221:22: note: expanded from macro 'toupper'
+#  define toupper(c)    __tobody (c, toupper, *__ctype_toupper_loc (), (c))
+                        ^
+/usr/include/ctype.h:160:4: note: expanded from macro '__tobody'
+          if (__builtin_constant_p (c))                                       \
+          ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:111:13: note: +6, including nesting penalty of 5, nesting level increased to 6
+                        && (wc = to_upper(tp->op)) != tp->op)
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:59:55: note: expanded from macro 'to_upper'
+#define to_upper(ch)    (mb_cur_max > 1 ? towupper(ch) : toupper(ch))
+                                                         ^
+/usr/include/ctype.h:221:22: note: expanded from macro 'toupper'
+#  define toupper(c)    __tobody (c, toupper, *__ctype_toupper_loc (), (c))
+                        ^
+/usr/include/ctype.h:163:40: note: expanded from macro '__tobody'
+              __res = __c < -128 || __c > 255 ? __c : (a)[__c];               \
+                                              ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:111:13: note: +1
+                        && (wc = to_upper(tp->op)) != tp->op)
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:59:55: note: expanded from macro 'to_upper'
+#define to_upper(ch)    (mb_cur_max > 1 ? towupper(ch) : toupper(ch))
+                                                         ^
+/usr/include/ctype.h:221:22: note: expanded from macro 'toupper'
+#  define toupper(c)    __tobody (c, toupper, *__ctype_toupper_loc (), (c))
+                        ^
+/usr/include/ctype.h:163:27: note: expanded from macro '__tobody'
+              __res = __c < -128 || __c > 255 ? __c : (a)[__c];               \
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:111:13: note: +1, nesting level increased to 5
+                        && (wc = to_upper(tp->op)) != tp->op)
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:59:55: note: expanded from macro 'to_upper'
+#define to_upper(ch)    (mb_cur_max > 1 ? towupper(ch) : toupper(ch))
+                                                         ^
+/usr/include/ctype.h:221:22: note: expanded from macro 'toupper'
+#  define toupper(c)    __tobody (c, toupper, *__ctype_toupper_loc (), (c))
+                        ^
+/usr/include/ctype.h:165:4: note: expanded from macro '__tobody'
+          else                                                                \
+          ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:111:13: note: +1, nesting level increased to 4
+                        && (wc = to_upper(tp->op)) != tp->op)
+                                 ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:59:55: note: expanded from macro 'to_upper'
+#define to_upper(ch)    (mb_cur_max > 1 ? towupper(ch) : toupper(ch))
+                                                         ^
+/usr/include/ctype.h:221:22: note: expanded from macro 'toupper'
+#  define toupper(c)    __tobody (c, toupper, *__ctype_toupper_loc (), (c))
+                        ^
+/usr/include/ctype.h:168:7: note: expanded from macro '__tobody'
+      else                                                                    \
+      ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:113:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((ptr = libuxre_reg1tree(tp->op, 0)) == 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:120:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((tp->right.ptr = ptr) == 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:142:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((tp->right.ptr = findposn(ep, tp->right.ptr,
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:150:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((tp->left.ptr = findposn(ep, tp->left.ptr,
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:155:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((tp->left.ptr = findposn(ep, tp->left.ptr,
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:200:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if ((ptr = copy(ep, tp->left.ptr)) == 0)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:205:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (lo == 0)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:207:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((tp->left.ptr = libuxre_reg1tree(ROP_QUEST, tp->left.ptr))
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:212:2: note: +1, nesting level increased to 1
+        else
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:214:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (hi == BRACE_INF || (hi -= lo) == 0)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:214:23: note: +1
+                if (hi == BRACE_INF || (hi -= lo) == 0)
+                                    ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:216:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                while (--lo != 0)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:218:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((tp = libuxre_reg2tree(ROP_CAT, tp, copy(ep, ptr)))
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:223:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (hi == BRACE_INF)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:225:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((tp->right.ptr = libuxre_reg1tree(ROP_PLUS, tp->right.ptr))
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:230:7: note: +1, nesting level increased to 1
+        else if (hi != 0)
+             ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:232:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((tp->right.ptr = libuxre_reg1tree(ROP_QUEST, tp->right.ptr))
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:237:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                while (--hi != 0)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:239:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((tp = libuxre_reg2tree(ROP_CAT, tp, copy(ep, ptr)))
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:110:11: error: no member named 're_flags' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                if (ep->re_flags & REG_ICASE
+                    ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:116:24: error: no member named 're_dfa' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                        ptr->left.pos = ep->re_dfa->nposn++;
+                                        ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:123:24: error: no member named 're_dfa' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                        ptr->left.pos = ep->re_dfa->nposn++;
+                                        ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:136:22: error: no member named 're_dfa' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+                tp->left.pos = ep->re_dfa->nposn++;
+                               ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:438:10: warning: narrowing conversion from 'unsigned long' to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                return t + 1;
+                       ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:460:17: warning: operator '<<' has lower precedence than '+'; '+' will be evaluated first [clang-diagnostic-shift-op-parentheses]
+                i = dp->avail + n << 1;
+                    ~~~~~~~~~~^~~ ~~
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:460:17: note: place parentheses around the '+' expression to silence this warning
+                i = dp->avail + n << 1;
+                              ^
+                    (            )
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:482:10: warning: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+                return -t;
+                       ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:483:9: warning: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions]
+        return t;
+               ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:519:1: warning: function 'regtrans' has cognitive complexity of 42 (threshold 25) [readability-function-cognitive-complexity]
+regtrans(Dfa *dp, int st, w_type wc, int mb_cur_max)
+^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:527:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if ((n = dp->nsig[st]) == 0)    /* dead state */
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:532:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        do
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:535:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                switch (pp->op)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:538:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (wc == '\0' && (dp->flags & REG_NOTEOL) == 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:538:19: note: +1
+                        if (wc == '\0' && (dp->flags & REG_NOTEOL) == 0)
+                                       ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:543:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (pp->op == wc)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:550:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (wc == '\n')
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:554:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (wc <= '\0')
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:558:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (wc == '\0')
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:569:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (wc > '\0' &&
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:569:18: note: +1
+                        if (wc > '\0' &&
+                                      ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:581:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                do
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:583:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (dp->posset[*sp] == 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:593:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if ((i = dp->nset) != 0)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:597:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                for (n = 0;; n++)
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:599:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (*s++ != 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:602:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (--i == 0)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:607:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if ((nst = addstate(dp)) < 0) /* flushed cache */
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:609:7: note: +1, nesting level increased to 1
+        else if (nst > 0 && (wc & ~(long)(NCHAR - 1)) == 0)
+             ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:609:19: note: +1
+        else if (nst > 0 && (wc & ~(long)(NCHAR - 1)) == 0)
+                         ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:639:6: error: no member named 're_dfa' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+        ep->re_dfa = dp;
+        ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:694:11: error: no member named 're_flags' in 'struct re_pattern_buffer' [clang-diagnostic-error]
+        if ((ep->re_flags & REG_NOSUB) == 0) /* leftmost() might be called */
+             ~~  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:722:1: warning: function 'leftmost' has cognitive complexity of 62 (threshold 25) [readability-function-cognitive-complexity]
+leftmost(Dfa *dp, Exec *xp)
+^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:732:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (xp->flags & REG_NOTBOL)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:734:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (dp->acc[st] && (xp->flags & REG_NONEMPTY) == 0)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:736:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (;;)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:738:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((wc = *s++) == '\n')
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:740:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (xp->flags & REG_NEWLINE)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:743:8: note: +1, nesting level increased to 2
+                else if (!ISONEBYTE(wc) && (i = libuxre_mb2wc(&wc, s)) > 0)
+                     ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:743:27: note: +1
+                else if (!ISONEBYTE(wc) && (i = libuxre_mb2wc(&wc, s)) > 0)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:743:13: note: +1
+                else if (!ISONEBYTE(wc) && (i = libuxre_mb2wc(&wc, s)) > 0)
+                          ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:56:43: note: expanded from macro 'ISONEBYTE'
+#define ISONEBYTE(ch)   (((ch) & 0200) == 0 || mb_cur_max == 1)
+                                            ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:745:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((wc & ~(long)(NCHAR - 1)) != 0
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:746:4: note: +1
+                        || (nst = dp->trans[st][wc]) == 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:748:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((nst=regtrans(dp, st, wc, mb_cur_max)) == 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:750:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (wc == ROP_EOL) /* REG_NEWLINE only */
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:752:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (dp->acc[nst - 1])
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:754:6: note: +5, including nesting penalty of 4, nesting level increased to 5
+                                        if (end == 0 || end < s)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:754:19: note: +1
+                                        if (end == 0 || end < s)
+                                                     ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:760:5: note: +1
+                                goto newst;
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:763:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((st = nst - 1) == 0) /* dead state */
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:765:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (end != 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:767:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((wc = *beg++) == '\0')
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:769:9: note: +1, nesting level increased to 3
+                        else if (!ISONEBYTE(wc) &&
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:769:28: note: +1
+                        else if (!ISONEBYTE(wc) &&
+                                                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:769:14: note: +1
+                        else if (!ISONEBYTE(wc) &&
+                                  ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:56:43: note: expanded from macro 'ISONEBYTE'
+#define ISONEBYTE(ch)   (((ch) & 0200) == 0 || mb_cur_max == 1)
+                                            ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:774:4: note: +1
+                        goto newst;
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:776:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (wc == '\0')
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:778:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (dp->acc[st])
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:781:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (end == 0 || end < s)
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:781:18: note: +1
+                                if (end == 0 || end < s)
+                                             ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:785:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (end != 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:790:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (dp->acc[st])
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:792:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (end == 0 || end < s)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:792:17: note: +1
+                        if (end == 0 || end < s)
+                                     ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:734:34: error: use of undeclared identifier 'REG_NONEMPTY' [clang-diagnostic-error]
+        if (dp->acc[st] && (xp->flags & REG_NONEMPTY) == 0)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:796:23: warning: narrowing conversion from 'long' to signed type 'regoff_t' (aka 'int') is implementation-defined [bugprone-narrowing-conversions]
+        xp->match[0].rm_so = beg - xp->str;
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:797:23: warning: narrowing conversion from 'long' to signed type 'regoff_t' (aka 'int') is implementation-defined [bugprone-narrowing-conversions]
+        xp->match[0].rm_eo = end - xp->str;
+                             ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:815:34: error: use of undeclared identifier 'REG_NONEMPTY' [clang-diagnostic-error]
+        if (dp->acc[st] && (xp->flags & REG_NONEMPTY) == 0)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:831:1: warning: function 'libuxre_regdfaexec' has cognitive complexity of 35 (threshold 25) [readability-function-cognitive-complexity]
+libuxre_regdfaexec(Dfa *dp, Exec *xp)
+^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:839:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (xp->nmatch != 0)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:841:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (mb_cur_max == 1 && (xp->flags & REG_NEWLINE) == 0)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:841:22: note: +1
+        if (mb_cur_max == 1 && (xp->flags & REG_NEWLINE) == 0)
+                            ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:845:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (xp->flags & REG_NOTBOL)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:847:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        if (dp->acc[st] && (xp->flags & REG_NONEMPTY) == 0)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:849:2: note: +1, including nesting penalty of 0, nesting level increased to 1
+        for (;;)
+        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:851:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((wc = *s++) == '\n')
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:853:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (xp->flags & REG_NEWLINE)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:856:8: note: +1, nesting level increased to 2
+                else if (!ISONEBYTE(wc) && (i = libuxre_mb2wc(&wc, s)) > 0)
+                     ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:856:27: note: +1
+                else if (!ISONEBYTE(wc) && (i = libuxre_mb2wc(&wc, s)) > 0)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:856:13: note: +1
+                else if (!ISONEBYTE(wc) && (i = libuxre_mb2wc(&wc, s)) > 0)
+                          ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/wcharm.h:56:43: note: expanded from macro 'ISONEBYTE'
+#define ISONEBYTE(ch)   (((ch) & 0200) == 0 || mb_cur_max == 1)
+                                            ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:858:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if ((wc & ~(long)(NCHAR - 1)) != 0
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:859:4: note: +1
+                        || (nst = dp->trans[st][wc]) == 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:861:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if ((nst=regtrans(dp, st, wc, mb_cur_max)) == 0)
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:863:4: note: +3, including nesting penalty of 2, nesting level increased to 3
+                        if (wc == ROP_EOL) /* REG_NEWLINE only */
+                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:865:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (dp->acc[nst - 1])
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:867:5: note: +4, including nesting penalty of 3, nesting level increased to 4
+                                if (dp->acc[st = dp->anybol])
+                                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:872:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (dp->acc[st = nst - 1])
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:874:3: note: +2, including nesting penalty of 1, nesting level increased to 2
+                if (wc == '\0') /* st == 0 */
+                ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.c:847:34: error: use of undeclared identifier 'REG_NONEMPTY' [clang-diagnostic-error]
+        if (dp->acc[st] && (xp->flags & REG_NONEMPTY) == 0)
+                                        ^
+/home/sj/1/refactoring-heirloom-grep/before/libuxre/regdfa.h:37:10: error: 're.h' file not found with <angled> include; use "quotes" instead [clang-diagnostic-error]
+#include <re.h>
+         ^~~~~~
+         "re.h"
