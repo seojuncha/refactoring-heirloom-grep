@@ -16,3 +16,5 @@ config.h
 
 # etc
 .DS_Store
+tests
+analysis-reports

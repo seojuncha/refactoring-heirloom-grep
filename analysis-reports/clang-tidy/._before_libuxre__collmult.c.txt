@@ -1,4 +1,0 @@
-/home/sj/1/refactoring-heirloom-grep/before/libuxre/colldata.h:57:10: error: 'wcharm.h' file not found with <angled> include; use "quotes" instead [clang-diagnostic-error]
-#include <wcharm.h>
-         ^~~~~~~~~~
-         "wcharm.h"
