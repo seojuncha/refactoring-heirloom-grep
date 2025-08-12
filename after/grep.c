@@ -70,6 +70,7 @@ int		wflag;			/* search for words */
 int		xflag;			/* match entire line */
 int		zflag;			/* decompress compressed files */
 int		mb_cur_max;		/* avoid multiple calls to MB_CUR_MAX */
+int		hadpat;     /* had pattern */
 unsigned	status = 1;		/* exit status */
 off_t		lmatch;			/* count of line matches */
 off_t		lineno;			/* current line number */
@@ -590,21 +591,11 @@ fngrep(const char *fn, int level)
 		ib_free(ip);
 }
 
-int
-main(int argc, char **argv)
+static void
+parse_args(int argc, char **argv, char *opts)
 {
-	int i, hadpat = 0;
-
-#ifdef	__GLIBC__
-	putenv("POSIXLY_CORRECT=1");
-#endif
-	progname = basename(argv[0]);
-	setlocale(LC_COLLATE, "");
-	setlocale(LC_CTYPE, "");
-	mb_cur_max = MB_CUR_MAX;
-	range = gn_range;
-	init();
-	while ((i = getopt(argc, argv, options)) != EOF) {
+	int i = 0;
+	while ((i = getopt(argc, argv, opts)) != EOF) {
 		switch (i) {
 		case 'E':
 			Eflag |= 1;
@@ -623,12 +614,12 @@ main(int argc, char **argv)
 			cflag = 1;
 			break;
 		case 'e':
-			patstring(optarg);
+			patstring(optarg); /* pattern string "egrep" */
 			hadpat++;
 			break;
 		case 'f':
 			fflag++;
-			patfile(optarg);
+			patfile(optarg);  /* pattern file "fgrep" */
 			hadpat++;
 			break;
 		case 'h':
@@ -674,6 +665,25 @@ main(int argc, char **argv)
 			status = 2;
 		}
 	}
+}
+
+int
+main(int argc, char **argv)
+{
+	hadpat = 0;
+#ifdef	__GLIBC__
+	putenv("POSIXLY_CORRECT=1");
+#endif
+	progname = basename(argv[0]);
+	setlocale(LC_COLLATE, "");
+	setlocale(LC_CTYPE, "");
+
+	mb_cur_max = MB_CUR_MAX;
+	range = gn_range;
+
+	init();
+	parse_args(argc, argv, options);
+
 	if (sus) {
 		if (Fflag == 2) {
 			if (sflag) {
@@ -696,15 +706,19 @@ main(int argc, char **argv)
 		if (wflag && (Eflag || Fflag))
 			usage();
 	}
+
 	if (cflag)
 		lflag = 0;
+
 	if (hadpat == 0) {
 		if (optind >= argc)
 			misop();
 		patstring(argv[optind++]);
 	} else if (e0 == NULL)
 		patstring(NULL);
+
 	build();
+
 	if (optind != argc) {
 		if (optind + 1 == argc)
 			hflag = 2;
@@ -723,5 +737,6 @@ main(int argc, char **argv)
 			exit(1);
 		fngrep(NULL, 0);
 	}
+
 	return status;
 }
