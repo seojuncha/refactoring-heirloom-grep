@@ -26,9 +26,13 @@
  */
 
 /*	Sccsid @(#)alloc.h	1.3 (gritter) 4/17/03>	*/
+#ifndef ALLOC_H_
+#define ALLOC_H_
 
-#include	<sys/types.h>
+#include <sys/types.h>
 
-extern void		*smalloc(size_t);
-extern void		*srealloc(void *, size_t);
-extern void		*scalloc(size_t, size_t);
+extern void *smalloc(size_t);
+extern void *srealloc(void *, size_t);
+extern void *scalloc(size_t, size_t);
+
+#endif

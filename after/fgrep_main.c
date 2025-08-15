@@ -1,4 +1,5 @@
 #include "grep.h"
+#include "public.h"
 #include <sys/types.h>
 
 char *usagemsg = "usage: %s [ -bchilnvx ] [ -e exp ] [ -f file ] [ strings ] [ file ] ...\n";

@@ -1,5 +1,6 @@
 #include "alloc.h"
 #include "grep.h"
+#include "public.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

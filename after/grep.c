@@ -49,6 +49,7 @@
 
 #include "alloc.h"
 #include "grep.h"
+#include "public.h"
 
 /*
  * Generic flags and the like.

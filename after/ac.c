@@ -49,6 +49,7 @@ static const char sccsid[] USED = "@(#)fgrep.sl	2.10 (gritter) 5/29/05";
 
 #include "alloc.h"
 #include "grep.h"
+#include "public.h"
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>

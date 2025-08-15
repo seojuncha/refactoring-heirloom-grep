@@ -42,6 +42,7 @@
 
 #include "alloc.h"
 #include "grep.h"
+#include "public.h"
 
 /*
  * Add a pattern starting at the given node of the expression list.

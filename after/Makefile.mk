@@ -100,10 +100,10 @@ config.h:
 	fi ; \
 	rm -f ___build$$$$.o ___build$$$$.c
 
-$(OBJDIR)/grep.o: grep.h config.h alloc.h
-$(OBJDIR)/plist.o: grep.h config.h alloc.h
-$(OBJDIR)/svid3.o: grep.h config.h
-$(OBJDIR)/sus.o: grep.h config.h alloc.h
-$(OBJDIR)/su3.o: grep.h config.h alloc.h
+$(OBJDIR)/grep.o: public.h config.h alloc.h
+$(OBJDIR)/plist.o: public.h config.h alloc.h
+$(OBJDIR)/svid3.o: public.h config.h
+$(OBJDIR)/sus.o: public.h config.h alloc.h
+$(OBJDIR)/su3.o: public.h config.h alloc.h
 $(OBJDIR)/ac.o: alloc.h grep.h
-$(OBJDIR)/rcomp.o: grep.h config.h alloc.h
+$(OBJDIR)/rcomp.o: public.h config.h alloc.h
