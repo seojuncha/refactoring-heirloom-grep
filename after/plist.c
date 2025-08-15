@@ -86,7 +86,7 @@ patstring(char *cp)
 		do {
 			if ((nl = (ep = strchr(cp, '\n')) != NULL) != 0)
 				*ep = 0;
-			addpat(&e, cp, ep ? ep - cp : strlen(cp), nl);
+			addpat(&e, cp, ep ? (unsigned)(ep - cp) : strlen(cp), nl);
 			cp = ep + 1;
 			if (nl)
 				*ep = '\n';
@@ -167,7 +167,7 @@ nextch(void)
 	}
 	if (len >= 0)
 		return iflag ? mbcode && wc & ~(wchar_t)0177 ?
-			towlower(wc) : tolower(wc) : wc;
+			(int)towlower(wc) : tolower(wc) : wc;
 	cp = NULL;
 	n = e->e_flg & E_NL;
 	if ((e = e->e_nxt) == NULL) {

@@ -268,7 +268,7 @@ yylex(void) {
 			}
 			do {
 				if (c == '\0' || c == EOF) synerror();
-				if (nxtchar >= MAXCHARS) more_chars(nxtchar);
+				if ((unsigned)nxtchar >= MAXCHARS) more_chars(nxtchar);
 				chars[nxtchar++] = c;
 				cclcnt++;
 			} while ((c = nextch()) != ']');
@@ -276,10 +276,11 @@ yylex(void) {
 			return (x);
 		case '\\':
 			if ((c = nextch()) == EOF) synerror();
+			/* fall through */
 		defchar:
 		default:
 			if (mbcode && c & ~(wchar_t)0177) {
-				if (nxtchar >= MAXCHARS) more_chars(nxtchar);
+				if ((unsigned)nxtchar >= MAXCHARS) more_chars(nxtchar);
 				chars[nxtchar] = c;
 				yylval = nxtchar++;
 				return (MCHAR);
@@ -295,7 +296,7 @@ synerror(void) {
 
 static int
 enter(int x) {
-	if(line >= MAXLIN) more_lines(line);
+	if((unsigned)line >= MAXLIN) more_lines(line);
 	name[line] = x;
 	left[line] = 0;
 	right[line] = 0;
@@ -320,7 +321,7 @@ menter(int x) {
 
 static int
 node(int x, int l, int r) {
-	if(line >= MAXLIN) more_lines(line);
+	if((unsigned)line >= MAXLIN) more_lines(line);
 	name[line] = x;
 	left[line] = l;
 	right[line] = r;
@@ -331,7 +332,7 @@ node(int x, int l, int r) {
 
 static int
 unary(int x, int d) {
-	if(line >= MAXLIN) more_lines(line);
+	if((unsigned)line >= MAXLIN) more_lines(line);
 	name[line] = x;
 	left[line] = d;
 	right[line] = 0;
@@ -364,7 +365,7 @@ cgotofn(int s, int c)
 	int curpos, num;
 	int number, newpos;
 	n = lastn;
-	cc = iflag ? mbcode && c & ~(wchar_t)0177 ? towlower(c):tolower(c) : c;
+	cc = iflag ? mbcode && c & ~(wchar_t)0177 ? (int)towlower(c):tolower(c) : c;
 	num = positions[state[s]];
 	count = icount;
 	for (i=3; i <= line; i++) tmpstat[i] = initstat[i];
@@ -375,11 +376,11 @@ cgotofn(int s, int c)
 			if (
 				((cc & ~(wchar_t)(NCHARS-1)) == 0 && k == cc)
 				|| (k == MCHAR && cc == chars[right[curpos]])
-				|| (cc != '\n' && cc != WEOF && ((k == DOT)
+				|| (cc != '\n' && cc != (int)WEOF && ((k == DOT)
 				|| (k == CCL && member(cc, right[curpos], 1))
 				|| (k == NCCL && member(cc, right[curpos], 0))))
 			) {
-				if (foll[curpos] < MAXPOS)
+				if ((unsigned)foll[curpos] < MAXPOS)
 					number = positions[foll[curpos]];
 				else
 					number = 0;
@@ -473,7 +474,7 @@ member(int symb, int set, int torf) {
 	pos = set + 1;
 	num += pos;
 	while (pos < num) {
-		if (chars[pos] == '-' && lastc != WEOF) {
+		if (chars[pos] == '-' && (unsigned)lastc != WEOF) {
 			if (++pos == num)	/* System V oddity: '[a-]' */
 				return (!torf);	/* matches 'a' but not '-' */
 			if (symb > lastc && symb < chars[pos])
@@ -510,7 +511,7 @@ add(int *array, int n) {
 	positions[nxtpos++] = count;
 	for (i=3; i <= line; i++) {
 		if (tmpstat[i] == 1) {
-			if (nxtpos >= MAXPOS) more_positions(nxtpos);
+			if ((unsigned)nxtpos >= MAXPOS) more_positions(nxtpos);
 			positions[nxtpos++] = i;
 		}
 	}

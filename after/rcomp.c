@@ -77,10 +77,12 @@ rc_match(const char *str, size_t sz)
 		}
 	}
 #endif	/* !UXRE */
-	if (gotcha)
+	if (gotcha) {
+		regoff_t rm_eo = pmatch[0].rm_eo;
 		if (!xflag || (pmatch[0].rm_so == 0
-				&& pmatch[0].rm_eo == sz))
+				&& ((rm_eo >= 0) && (unsigned)rm_eo == sz)))
 			return 1;
+	}
 	return 0;
 }
 

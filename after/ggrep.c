@@ -116,6 +116,7 @@ st_build(void)
 static int
 st_match(const char *line, size_t sz)
 {
+	(void)sz;
 	return step(line, c_exp);
 }
 
@@ -162,6 +163,7 @@ misop(void)
 void
 patfile(char *a)
 {
+	(void)a;
 }
 
 void

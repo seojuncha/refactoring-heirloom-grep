@@ -273,7 +273,7 @@ ac_matchw(const char *line, size_t sz)
 	}
 	for (;;) {
 		nstate:
-			if (c->inp == z) {
+			if (c->inp == (int)z) {
 				c = c->nst;
 			}
 			else if (c->link != 0) {
@@ -286,7 +286,7 @@ ac_matchw(const char *line, size_t sz)
 				if (c==0) {
 					c = w;
 					istate:
-					if (c->inp == z) {
+					if (c->inp == (int)z) {
 						c = c->nst;
 					}
 					else if (c->link != 0) {
@@ -346,7 +346,7 @@ ac_rangew(struct iblok *ip, char *last)
 				z = *p;
 				n = 1;
 			}
-			if (c->inp == z) {
+			if (c->inp == (int)z) {
 				c = c->nst;
 			}
 			else if (c->link != 0) {
@@ -359,7 +359,7 @@ ac_rangew(struct iblok *ip, char *last)
 				if (c==0) {
 					c = w;
 					istate:
-					if (c->inp == z) {
+					if (c->inp == (int)z) {
 						c = c->nst;
 					}
 					else if (c->link != 0) {
@@ -567,6 +567,7 @@ init:	if ((s->inp) != 0) {
 static int
 a0_match(const char *str, size_t sz)
 {
+	(void)str; (void)sz;
 	return 0;
 }
 
@@ -574,5 +575,6 @@ a0_match(const char *str, size_t sz)
 static int
 a1_match(const char *str, size_t sz)
 {
+	(void)str; (void)sz;
 	return 1;
 }
