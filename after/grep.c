@@ -525,7 +525,7 @@ fngrep(const char *fn, int level)
 			break;
 		case S_IFDIR: {
 			char	*path;
-			int	pend, psize, i;
+			int	pend, psize, pi;
 			DIR	*df;
 			struct dirent	*dp;
 
@@ -550,13 +550,13 @@ fngrep(const char *fn, int level)
 					 	(dp->d_name[1] == '.' &&
 					 	dp->d_name[2] == '\0')))
 					continue;
-				i = 0;
+				pi = 0;
 				do {
-					if (pend + i >= psize)
+					if (pend + pi >= psize)
 						path = srealloc(path,
 								psize += 14);
-					path[pend+i] = dp->d_name[i];
-				} while (dp->d_name[i++]);
+					path[pend+pi] = dp->d_name[pi];
+				} while (dp->d_name[pi++]);
 				filename = path;
 				fngrep(path, level+1);
 			}

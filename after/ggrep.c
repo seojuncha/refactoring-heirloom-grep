@@ -131,7 +131,12 @@ st_select(void)
 void
 patstring(char *pat)
 {
-	long	len = strlen(pat);
+	long len;
+	if (pat == NULL) {
+		fprintf(stderr, "%s: NULL pattern not allowed\n", progname);
+		exit(2);
+	}
+	len = strlen(pat);
 
 	e0 = (struct expr *)smalloc(sizeof *e0);
 	e0->e_nxt = NULL;

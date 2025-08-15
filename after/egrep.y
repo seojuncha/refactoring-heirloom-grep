@@ -77,9 +77,9 @@ static const char sccsid[] USED = "@(#)egrep.sl	2.22 (gritter) 5/29/05";
 
 #include <mbtowi.h>
 
-#define NCHARS 256
-#define	NSTATES	64
-#define FINAL -1
+#define NCHARS (256)
+#define	NSTATES	(64)
+#define FINAL (-1)
 static unsigned	MAXLIN;
 static unsigned	MAXPOS;
 static unsigned	MAXCHARS;
