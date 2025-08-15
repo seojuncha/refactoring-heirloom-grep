@@ -1,1 +1,49 @@
-# refacotring-heirloom-grep
+# Heirloom grep Legacy Code Refactoring
+
+Analysis and refactoring of the legacy `grep` implementation from the Heirloom Toolchest project.
+Focus on code readability, maintainability, and basic bug fixes.
+
+## Repository Structure
+```
+before/             # Original source snapshot
+after/              # Refactored source
+tests/              # Test files
+do-analysis.sh      # Run clang-tidy and cppcheck
+gen-test-files.sh   # Create test files to be grepped
+smoke-test.sh       # Test and compare with the system grep
+report.pdf          # Detailed analysis & refactoring report
+```
+
+## Build & Run
+```bash
+$ cd after    # or move to the 'before' for the original source
+$ make        # Build
+$ make test   # Run minimal smoke tests
+```
+
+## Refactoring Summary
+1. Executable Separation
+* Created thin entry points: grep_main.c, egrep_main.c, and fgrep_main.c
+* Extracted common logic into grep_run()
+* Linked executables against a shared library (libgrep.a) during build
+
+2. Introduction of Public API
+* Added public.h exposing only the minimal declarations required by executables (`grep_run`, `progname`)
+* Kept existing headers for internal implementation details
+
+3. Const-Qualification of Immutable Data
+* Promoted strings and option tables that do not change at runtime to const
+* Improved compiler optimization opportunities and code safety
+
+## Analysis Tools Used
+* `clang-tidy` (static analysis)
+* `cppcheck` (static analysis)
+* `valgrind` (dynamic analysis)
+
+## Testing
+* Smoke test script: scripts/smoke.sh
+* Covers: basic match, -n, -i, -v, multi-file, EOF without newline, long line handling
+
+
+## Report
+* `report.pdf`
