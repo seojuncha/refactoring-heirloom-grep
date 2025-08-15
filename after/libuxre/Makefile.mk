@@ -50,7 +50,7 @@ stubs.o: stubs.c
 install:
 
 clean:
-	rm -f $(OBJ) core log *~
+	rm -f $(OBJ) core log *~ libuxre.a
 
 _collelem.o: colldata.h re.h regex.h wcharm.h
 _collmult.o: colldata.h re.h regex.h wcharm.h

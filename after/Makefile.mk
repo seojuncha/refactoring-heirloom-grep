@@ -2,21 +2,24 @@ include mk.config
 
 OBJS := $(OBJDIR)/alloc.o $(OBJDIR)/grep.o $(OBJDIR)/grid.o
 
+LIB_COMMON := libcommon/libcommon.a
+LIB_UXRE := libuxre/libuxre.a
+
 all: egrep fgrep grep grep_sus grep_su3
 
-egrep: $(OBJS) $(OBJDIR)/egrep.o $(OBJDIR)/plist.o $(OBJDIR)/svid3.o
+egrep: $(OBJS) $(LIB_COMMON) $(LIB_UXRE) $(OBJDIR)/egrep.o $(OBJDIR)/plist.o $(OBJDIR)/svid3.o
 	$(LD) $(LDFLAGS) $^ $(LCOMMON) $(LWCHAR) $(LIBS) -o $@
 
-fgrep: $(OBJS) $(OBJDIR)/fgrep.o $(OBJDIR)/plist.o $(OBJDIR)/ac.o $(OBJDIR)/svid3.o
+fgrep: $(OBJS) $(LIB_COMMON) $(LIB_UXRE)  $(OBJDIR)/fgrep.o $(OBJDIR)/plist.o $(OBJDIR)/ac.o $(OBJDIR)/svid3.o
 	$(LD) $(LDFLAGS) $^ $(LCOMMON) $(LWCHAR) $(LIBS) -o $@
 
-grep: $(OBJS) $(OBJDIR)/ggrep.o $(OBJDIR)/svid3.o
+grep: $(OBJS)  $(LIB_COMMON) $(LIB_UXRE) $(OBJDIR)/ggrep.o $(OBJDIR)/svid3.o
 	$(LD) $(LDFLAGS) $^ $(LCOMMON) $(LWCHAR) $(LIBS) -o $@
 
-grep_sus: $(OBJS) $(OBJDIR)/plist.o $(OBJDIR)/rcomp.o $(OBJDIR)/sus.o $(OBJDIR)/ac.o
+grep_sus: $(OBJS)  $(LIB_COMMON) $(LIB_UXRE) $(OBJDIR)/plist.o $(OBJDIR)/rcomp.o $(OBJDIR)/sus.o $(OBJDIR)/ac.o
 	$(LD) $(LDFLAGS) $^ $(LUXRE) $(LCOMMON) $(LWCHAR) $(LIBS) -o $@
 
-grep_su3: $(OBJS) $(OBJDIR)/plist.o $(OBJDIR)/rcomp.o $(OBJDIR)/su3.o $(OBJDIR)/ac.o
+grep_su3: $(OBJS) $(LIB_COMMON) $(LIB_UXRE)  $(OBJDIR)/plist.o $(OBJDIR)/rcomp.o $(OBJDIR)/su3.o $(OBJDIR)/ac.o
 	$(LD) $(LDFLAGS) $^ $(LUXRE) $(LCOMMON) $(LWCHAR) $(LIBS) -o $@
 
 $(OBJDIR)/%.o: %.c | $(OBJDIR)
@@ -30,6 +33,12 @@ $(OBJDIR)/su3.o: sus.c | $(OBJDIR)
 
 $(OBJDIR):
 	@mkdir -p $@
+
+$(LIB_COMMON):
+	cd libcommon && $(MAKE) -f Makefile.mk
+
+$(LIB_UXRE):
+	cd libuxre && $(MAKE) -f Makefile.mk
 
 install: all
 	$(UCBINST) -c egrep $(ROOT)$(SV3BIN)/egrep
@@ -53,6 +62,8 @@ install: all
 	$(MANINST) -c -m 644 grep.1 $(ROOT)$(MANDIR)/man1/grep.1
 
 clean:
+	cd libcommon && $(MAKE) -f Makefile.mk clean
+	cd libuxre && $(MAKE) -f Makefile.mk clean
 	rm -rf $(OBJDIR) egrep fgrep grep grep_sus grep_su3
 
 config.h:

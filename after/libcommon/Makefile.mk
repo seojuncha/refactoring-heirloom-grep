@@ -29,7 +29,7 @@ headers: CHECK
 install:
 
 clean:
-	rm -f $(OBJ) core log *~ alloca.h malloc.h utmpx.h CHECK
+	rm -f $(OBJ) core log *~ alloca.h malloc.h utmpx.h CHECK libcommon.a
 
 asciitype.o: asciitype.c
 	$(CC) $(CFLAGSS) $(CPPFLAGS) $(LARGEF) $(IWCHAR) -I. -c asciitype.c
