@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BUILD_DIR="./before"
-REPORT_DIR="./analysis-reports/clang-tidy"
+REPORT_DIR="$BUILD_DIR/analysis-reports/clang-tidy"
 
 mkdir -p "$REPORT_DIR"
 
@@ -26,4 +26,4 @@ done
 echo "Analysis complete. Reports are in $REPORT_DIR"
 
 echo "Run cppcheck..."
-cppcheck --enable=all --inconclusive --std=c99 . &> "./analysis-reports/cppcheck_all.txt"
+cppcheck --enable=all --inconclusive --std=c89 $BUILD_DIR &> "$BUILD_DIR/analysis-reports/cppcheck_all.txt"
