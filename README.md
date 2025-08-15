@@ -21,6 +21,17 @@ $ make        # Build
 $ make test   # Run minimal smoke tests
 ```
 
+To generate test files,
+```bash
+$ ./gen-test-files.sh
+```
+
+Run `clang-tidy` and `cppcheck`.
+> Please change the `BUILD_DIR` in the script into either `after` or `before`.
+```bash
+$ ./do-analysis.sh
+```
+
 ## Refactoring Summary
 1. Executable Separation
 * Created thin entry points: grep_main.c, egrep_main.c, and fgrep_main.c
@@ -41,7 +52,7 @@ $ make test   # Run minimal smoke tests
 * `valgrind` (dynamic analysis)
 
 ## Testing
-* Smoke test script: scripts/smoke.sh
+* Smoke test script: `smoke-test.sh`
 * Covers: basic match, -n, -i, -v, multi-file, EOF without newline, long line handling
 
 

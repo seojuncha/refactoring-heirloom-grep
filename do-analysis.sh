@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILD_DIR="./before"
+BUILD_DIR="./after"
 REPORT_DIR="$BUILD_DIR/analysis-reports/clang-tidy"
 
 mkdir -p "$REPORT_DIR"
