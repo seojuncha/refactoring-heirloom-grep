@@ -33,16 +33,16 @@ $ ./do-analysis.sh
 ```
 
 ## Refactoring Summary
-1. Executable Separation
-* Created thin entry points: grep_main.c, egrep_main.c, and fgrep_main.c
-* Extracted common logic into grep_run()
-* Linked executables against a shared library (libgrep.a) during build
+1. __Executable Separation__
+* Created thin entry points: `grep_main.c`, `egrep_main.c`, and `fgrep_main.c`
+* Extracted common logic into `grep_run()`
+* Linked executables against a shared library (`libgrep.a`) during build
 
-2. Introduction of Public API
+2. __Introduction of Public API__
 * Added public.h exposing only the minimal declarations required by executables (`grep_run`, `progname`)
 * Kept existing headers for internal implementation details
 
-3. Const-Qualification of Immutable Data
+3. __Const-Qualification of Immutable Data__
 * Promoted strings and option tables that do not change at runtime to const
 * Improved compiler optimization opportunities and code safety
 
