@@ -30,10 +30,9 @@
 /*
  * Code involving POSIX.2 regcomp()/regexpr() routines.
  */
-
 #include "alloc.h"
 #include "grep.h"
-#include <mbtowi.h>
+#include "mbtowi.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
