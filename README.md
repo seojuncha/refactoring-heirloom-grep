@@ -46,6 +46,10 @@ $ ./do-analysis.sh
 * Promoted strings and option tables that do not change at runtime to const
 * Improved compiler optimization opportunities and code safety
 
+4. __Unified Code Formatting__
+* Added a `.clang-format` configuration file to enforce consistent code style across the entire codebase
+* Applied formatting to all source and header files
+
 ## Analysis Tools Used
 * `clang-tidy` (static analysis)
 * `cppcheck` (static analysis)
