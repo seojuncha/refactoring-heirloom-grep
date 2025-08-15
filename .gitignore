@@ -18,3 +18,4 @@ config.h
 .DS_Store
 tests
 analysis-reports
+CHECK

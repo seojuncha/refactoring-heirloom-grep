@@ -2,6 +2,9 @@ include ../mk.config
 
 all: libcommon.a
 
+# [TEMP] to decreate errors for the library part.
+WARN = -Wall -Wextra
+
 OBJ = asciitype.o ib_alloc.o ib_close.o ib_free.o ib_getlin.o ib_getw.o \
 	ib_open.o ib_popen.o ib_read.o ib_seek.o oblok.o sfile.o strtol.o \
 	getdir.o regexpr.o gmatch.o utmpx.o memalign.o pathconf.o \

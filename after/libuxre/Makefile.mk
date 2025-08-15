@@ -2,6 +2,9 @@ include ../mk.config
 
 all: libuxre.a
 
+# [TEMP] to decreate errors for the library part.
+WARN = -Wall -Wextra
+
 #OBJ = bracket.o _collelem.o _collmult.o regcomp.o regdfa.o regerror.o \
 #	regexec.o regfree.o regnfa.o regparse.o stubs.o
 
