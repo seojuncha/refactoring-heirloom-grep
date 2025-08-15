@@ -31,23 +31,22 @@
  * Pattern list routines.
  */
 
-#include	<sys/types.h>
-#include	<sys/stat.h>
-#include	<fcntl.h>
-#include	<unistd.h>
-#include	<stdio.h>
-#include	<string.h>
-#include	<stdlib.h>
-#include	<ctype.h>
+#include <ctype.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
 
-#include	"grep.h"
-#include	"alloc.h"
+#include "alloc.h"
+#include "grep.h"
 
 /*
  * Add a pattern starting at the given node of the expression list.
  */
-static void
-addpat(struct expr **e, char *pat, long len, enum eflags flg)
+static void addpat(struct expr **e, char *pat, long len, enum eflags flg)
 {
 	if (e0) {
 		(*e)->e_nxt = (struct expr *)smalloc(sizeof **e);
@@ -67,8 +66,7 @@ addpat(struct expr **e, char *pat, long len, enum eflags flg)
  * overrides all -e and all previous -f options. In POSIX.2 command versions,
  * all -e and -f options are cumulated.
  */
-void
-patstring(char *cp)
+void patstring(char *cp)
 {
 	struct expr *e = NULL;
 	char *ep;
@@ -76,7 +74,8 @@ patstring(char *cp)
 
 	if (e0) {
 		if (sus)
-			for (e = e0; e->e_nxt; e = e->e_nxt);
+			for (e = e0; e->e_nxt; e = e->e_nxt)
+				;
 		else if (fflag)
 			return;
 		else
@@ -98,13 +97,12 @@ patstring(char *cp)
 /*
  * Read patterns from file.
  */
-void
-patfile(char *fn)
+void patfile(char *fn)
 {
 	struct stat st;
 	struct expr *e = NULL;
 	char *cp;
-	struct iblok	*ip;
+	struct iblok *ip;
 	size_t sz, len;
 	int nl;
 
@@ -114,12 +112,12 @@ patfile(char *fn)
 	}
 	if (e0) {
 		if (sus)
-			for (e = e0; e->e_nxt; e = e->e_nxt);
+			for (e = e0; e->e_nxt; e = e->e_nxt)
+				;
 		else
 			e0 = NULL;
 	}
-	while (cp = NULL, sz = 0,
-			(len = ib_getlin(ip, &cp, &sz, srealloc)) > 0) {
+	while (cp = NULL, sz = 0, (len = ib_getlin(ip, &cp, &sz, srealloc)) > 0) {
 		if ((nl = cp[len - 1] == '\n') != 0)
 			cp[len - 1] = '\0';
 		addpat(&e, cp, len - nl, nl);
@@ -130,8 +128,7 @@ patfile(char *fn)
 /*
  * getc() substitute operating on the pattern list.
  */
-int
-nextch(void)
+int nextch(void)
 {
 	static struct expr *e;
 	static char *cp;
@@ -155,8 +152,7 @@ nextch(void)
 	}
 	if (mbcode && *cp & 0200) {
 		if ((n = mbtowc(&wc, cp, MB_LEN_MAX)) < 0) {
-			fprintf(stderr, "%s: illegal byte sequence\n",
-				progname);
+			fprintf(stderr, "%s: illegal byte sequence\n", progname);
 			exit(1);
 		}
 		cp += n;
@@ -166,8 +162,7 @@ nextch(void)
 		len--;
 	}
 	if (len >= 0)
-		return iflag ? mbcode && wc & ~(wchar_t)0177 ?
-			(int)towlower(wc) : tolower(wc) : wc;
+		return iflag ? mbcode && wc & ~(wchar_t)0177 ? (int)towlower(wc) : tolower(wc) : wc;
 	cp = NULL;
 	n = e->e_flg & E_NL;
 	if ((e = e->e_nxt) == NULL) {
@@ -182,10 +177,9 @@ nextch(void)
  * Print matching line based on ip->ib_cur and moff. Advance ip->ib_cur to start
  * of next line. Used from special rangematch functions.
  */
-void
-outline(struct iblok *ip, char *last, size_t moff)
+void outline(struct iblok *ip, char *last, size_t moff)
 {
-	register char *sol, *eol;	/* start and end of line */
+	register char *sol, *eol; /* start and end of line */
 
 	if (qflag == 0) {
 		if (status == 1)
@@ -202,12 +196,12 @@ outline(struct iblok *ip, char *last, size_t moff)
 			if (sol > ip->ib_cur)
 				sol++;
 			ip->ib_cur += moff;
-			for (eol = ip->ib_cur; eol <= last
-					&& *eol != '\n'; eol++);
+			for (eol = ip->ib_cur; eol <= last && *eol != '\n'; eol++)
+				;
 			if (!cflag)
 				report(sol, eol - sol, ib_offs(ip) / BSZ, 1);
 			ip->ib_cur = eol + 1;
 		}
-	} else	/* qflag != 0 */
+	} else /* qflag != 0 */
 		exit(0);
 }

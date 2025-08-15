@@ -31,33 +31,32 @@
  * Code for POSIX.2 command version only.
  */
 
-#include	<sys/types.h>
-#include	<stdio.h>
-#include	<stdlib.h>
-#include	<string.h>
-#include	"alloc.h"
-#include	"grep.h"
+#include "alloc.h"
+#include "grep.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
 
-#if defined (SU3)
-int		sus = 3;
+#if defined(SU3)
+int sus = 3;
 #if __GNUC__ >= 3 && __GNUC_MINOR__ >= 4 || __GNUC__ >= 4
-#define	USED	__attribute__ ((used))
+#define USED __attribute__((used))
 #elif defined __GNUC__
-#define	USED	__attribute__ ((unused))
+#define USED __attribute__((unused))
 #else
-#define	USED
+#define USED
 #endif
 static const char su3id[] USED = "@(#)grep_su3.sl	1.24 (gritter) 5/29/05";
 #else
-int		sus = 1;
+int sus = 1;
 #endif
-char		*stdinmsg = "(standard input)";
+char *stdinmsg = "(standard input)";
 
 /*
  * Usage message.
  */
-void
-usage(void)
+void usage(void)
 {
 	char *sEF, *sq, *ss;
 
@@ -76,21 +75,16 @@ usage(void)
      %s[-c|-l%s] [-bhin%svx] pattern [file ...]\n\
      %s[-c|-l%s] [-bhin%svx] -e pattern ... [-f file ...] [file ...]\n\
      %s[-c|-l%s] [-bhin%svx] -f file ... [-e pattern ...] [file ...]\n",
- 		progname,
-		sEF, sq, ss,
-		sEF, sq, ss,
-		sEF, sq, ss);
+		progname, sEF, sq, ss, sEF, sq, ss, sEF, sq, ss);
 	exit(2);
 }
 
-void
-misop(void)
+void misop(void)
 {
 	usage();
 }
 
-void
-rc_error(struct expr *e, int rerror)
+void rc_error(struct expr *e, int rerror)
 {
 	char *regerrs;
 	size_t resz;
@@ -102,8 +96,7 @@ rc_error(struct expr *e, int rerror)
 	exit(2);
 }
 
-void
-init(void)
+void init(void)
 {
 	switch (*progname) {
 	case 'e':
@@ -122,17 +115,15 @@ init(void)
 	}
 }
 
-void
-eg_select(void)
+void eg_select(void)
 {
 }
 
-void
-st_select(void)
+void st_select(void)
 {
 }
 
-int
-main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
 	return grep_run(argc, argv);
 }

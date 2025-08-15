@@ -1,9 +1,9 @@
-#include	<sys/types.h>
-#include	<stdio.h>
-#include	<stdlib.h>
-#include	<string.h>
-#include	"grep.h"
-#include	"alloc.h"
+#include "alloc.h"
+#include "grep.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
 
 char *usagemsg = "Usage: %s -hblcnsvi pattern file . . .\n";
 char *stdinmsg = "<stdin>";
@@ -11,8 +11,7 @@ char *stdinmsg = "<stdin>";
 /*
  * Error callback for compile().
  */
-void
-comperr(int code)
+void comperr(int code)
 {
 	char *msg;
 
@@ -63,15 +62,14 @@ comperr(int code)
 	exit(2);
 }
 
-#include	"regexpr.h"
+#include "regexpr.h"
 
-static char	*c_exp;
+static char *c_exp;
 
 /*
  * Compile a pattern.
  */
-static void
-st_build(void)
+static void st_build(void)
 {
 	if (iflag)
 		e0->e_len = loconv(e0->e_pat, e0->e_pat, e0->e_len + 1) - 1;
@@ -83,23 +81,20 @@ st_build(void)
  * Compare a line and the global pattern using step().
  */
 /*ARGSUSED1*/
-static int
-st_match(const char *line, size_t sz)
+static int st_match(const char *line, size_t sz)
 {
 	(void)sz;
 	return step(line, c_exp);
 }
 
-void
-st_select(void)
+void st_select(void)
 {
 	build = st_build;
 	match = st_match;
-	matchflags |= MF_NULTERM|MF_LOCONV;
+	matchflags |= MF_NULTERM | MF_LOCONV;
 }
 
-void
-patstring(char *pat)
+void patstring(char *pat)
 {
 	long len;
 	if (pat == NULL) {
@@ -121,42 +116,36 @@ patstring(char *pat)
 	}
 }
 
-void
-init(void)
+void init(void)
 {
 	st_select();
 	options = "bchilnrRsvwyz";
 }
 
-void
-misop(void)
+void misop(void)
 {
 	usage();
 }
 
 /*ARGSUSED*/
-void
-patfile(char *a)
+void patfile(char *a)
 {
 	(void)a;
 }
 
-void
-ac_select(void)
+void ac_select(void)
 {
 }
 
-void
-eg_select(void)
+void eg_select(void)
 {
 }
 
-void
-rc_select(void)
+void rc_select(void)
 {
 }
 
-int main(int argc, char **argv) {
-  return grep_run(argc, argv);
+int main(int argc, char **argv)
+{
+	return grep_run(argc, argv);
 }
-

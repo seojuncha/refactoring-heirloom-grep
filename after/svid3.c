@@ -31,18 +31,17 @@
  * Code for SVID3 grep version only.
  */
 
-#include	<sys/types.h>
-#include	<stdio.h>
-#include	<stdlib.h>
-#include	"grep.h"
+#include "grep.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
 
-int		sus = 0;
+int sus = 0;
 
 /*
  * Usage message.
  */
-void
-usage(void)
+void usage(void)
 {
 	fprintf(stderr, usagemsg, progname);
 	exit(2);

@@ -39,54 +39,53 @@
  */
 
 #if __GNUC__ >= 3 && __GNUC_MINOR__ >= 4 || __GNUC__ >= 4
-#define	USED	__attribute__ ((used))
+#define USED __attribute__((used))
 #elif defined __GNUC__
-#define	USED	__attribute__ ((unused))
+#define USED __attribute__((unused))
 #else
-#define	USED
+#define USED
 #endif
 static const char sccsid[] USED = "@(#)fgrep.sl	2.10 (gritter) 5/29/05";
 
-#include <sys/types.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <limits.h>
-#include "grep.h"
 #include "alloc.h"
+#include "grep.h"
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
 
 #include <mbtowi.h>
 
-#define	MAXSIZ	256
-#define	QSIZE	128
+#define MAXSIZ 256
+#define QSIZE 128
 
 struct words {
-	struct words	*nst;
-	struct words	*link;
-	struct words	*fail;
-	int 	inp;
-	char	out;
+	struct words *nst;
+	struct words *link;
+	struct words *fail;
+	int inp;
+	char out;
 };
 
-static	struct words	*w, *wcur;
-static	struct words	*smax;
-static	struct words	*q;
+static struct words *w, *wcur;
+static struct words *smax;
+static struct words *q;
 
-static void	ac_build(void);
-static int	ac_match(const char *, size_t);
-static int	ac_matchw(const char *, size_t);
-static int	ac_range(struct iblok *, char *);
-static int	ac_rangew(struct iblok *, char *);
-static void	cgotofn(void);
-static void	check(int, int);
-static void	woverflo(void);
-static void	qoverflo(struct words ***queue, int *qsize);
-static void	cfail(void);
-static int	a0_match(const char *, size_t);
-static int	a1_match(const char *, size_t);
+static void ac_build(void);
+static int ac_match(const char *, size_t);
+static int ac_matchw(const char *, size_t);
+static int ac_range(struct iblok *, char *);
+static int ac_rangew(struct iblok *, char *);
+static void cgotofn(void);
+static void check(int, int);
+static void woverflo(void);
+static void qoverflo(struct words ***queue, int *qsize);
+static void cfail(void);
+static int a0_match(const char *, size_t);
+static int a1_match(const char *, size_t);
 
-void
-ac_select(void)
+void ac_select(void)
 {
 	build = ac_build;
 	match = mbcode ? ac_matchw : ac_match;
@@ -94,8 +93,7 @@ ac_select(void)
 	matchflags |= MF_LOCONV;
 }
 
-static void
-ac_build(void)
+static void ac_build(void)
 {
 	struct expr *e;
 
@@ -115,8 +113,7 @@ ac_build(void)
 		range = mbcode ? ac_rangew : ac_range;
 }
 
-static int
-ac_match(const char *line, size_t sz)
+static int ac_match(const char *line, size_t sz)
 {
 	register const char *p;
 	register int z;
@@ -131,30 +128,27 @@ ac_match(const char *line, size_t sz)
 	else
 		z = *p & 0377;
 	for (;;) {
-		nstate:
-			if (c->inp == z) {
-				c = c->nst;
-			}
-			else if (c->link != 0) {
-				c = c->link;
-				goto nstate;
-			}
-			else {
-				c = c->fail;
-				failed = 1;
-				if (c==0) {
-					c = w;
-					istate:
-					if (c->inp == z) {
-						c = c->nst;
-					}
-					else if (c->link != 0) {
-						c = c->link;
-						goto istate;
-					}
+	nstate:
+		if (c->inp == z) {
+			c = c->nst;
+		} else if (c->link != 0) {
+			c = c->link;
+			goto nstate;
+		} else {
+			c = c->fail;
+			failed = 1;
+			if (c == 0) {
+				c = w;
+			istate:
+				if (c->inp == z) {
+					c = c->nst;
+				} else if (c->link != 0) {
+					c = c->link;
+					goto istate;
 				}
-				else goto nstate;
-			}
+			} else
+				goto nstate;
+		}
 		if (c->out) {
 			if (xflag) {
 				if (failed || p < &line[sz])
@@ -172,8 +166,7 @@ ac_match(const char *line, size_t sz)
 	}
 }
 
-static int
-ac_range(struct iblok *ip, char *last)
+static int ac_range(struct iblok *ip, char *last)
 {
 	register char *p;
 	register struct words *c;
@@ -184,30 +177,27 @@ ac_range(struct iblok *ip, char *last)
 	failed = 0;
 	c = w;
 	for (;;) {
-		nstate:
-			if (c->inp == (*p & 0377)) {
-				c = c->nst;
-			}
-			else if (c->link != 0) {
-				c = c->link;
-				goto nstate;
-			}
-			else {
-				c = c->fail;
-				failed = 1;
-				if (c==0) {
-					c = w;
-					istate:
-					if (c->inp == (*p & 0377)) {
-						c = c->nst;
-					}
-					else if (c->link != 0) {
-						c = c->link;
-						goto istate;
-					}
+	nstate:
+		if (c->inp == (*p & 0377)) {
+			c = c->nst;
+		} else if (c->link != 0) {
+			c = c->link;
+			goto nstate;
+		} else {
+			c = c->fail;
+			failed = 1;
+			if (c == 0) {
+				c = w;
+			istate:
+				if (c->inp == (*p & 0377)) {
+					c = c->nst;
+				} else if (c->link != 0) {
+					c = c->link;
+					goto istate;
 				}
-				else goto nstate;
-			}
+			} else
+				goto nstate;
+		}
 		if (c->out) {
 			if (xflag) {
 				register char *ep = p;
@@ -219,14 +209,17 @@ ac_range(struct iblok *ip, char *last)
 				}
 			}
 			if (vflag == 0) {
-		succeed:	outline(ip, last, p - ip->ib_cur);
+			succeed:
+				outline(ip, last, p - ip->ib_cur);
 				if (qflag || lflag)
 					return 1;
 			} else {
 				ip->ib_cur = p;
-				while (*ip->ib_cur++ != '\n');
+				while (*ip->ib_cur++ != '\n')
+					;
 			}
-		nogood:	if ((p = ip->ib_cur) > last)
+		nogood:
+			if ((p = ip->ib_cur) > last)
 				return 0;
 			lineno++;
 			c = w;
@@ -247,8 +240,7 @@ ac_range(struct iblok *ip, char *last)
 	}
 }
 
-static int
-ac_matchw(const char *line, size_t sz)
+static int ac_matchw(const char *line, size_t sz)
 {
 	register const char *p;
 	wint_t z;
@@ -272,30 +264,27 @@ ac_matchw(const char *line, size_t sz)
 		}
 	}
 	for (;;) {
-		nstate:
-			if (c->inp == (int)z) {
-				c = c->nst;
-			}
-			else if (c->link != 0) {
-				c = c->link;
-				goto nstate;
-			}
-			else {
-				c = c->fail;
-				failed = 1;
-				if (c==0) {
-					c = w;
-					istate:
-					if (c->inp == (int)z) {
-						c = c->nst;
-					}
-					else if (c->link != 0) {
-						c = c->link;
-						goto istate;
-					}
+	nstate:
+		if (c->inp == (int)z) {
+			c = c->nst;
+		} else if (c->link != 0) {
+			c = c->link;
+			goto nstate;
+		} else {
+			c = c->fail;
+			failed = 1;
+			if (c == 0) {
+				c = w;
+			istate:
+				if (c->inp == (int)z) {
+					c = c->nst;
+				} else if (c->link != 0) {
+					c = c->link;
+					goto istate;
 				}
-				else goto nstate;
-			}
+			} else
+				goto nstate;
+		}
 		if (c->out) {
 			if (xflag) {
 				if (failed || p < &line[sz])
@@ -323,11 +312,10 @@ ac_matchw(const char *line, size_t sz)
 	}
 }
 
-static int
-ac_rangew(struct iblok *ip, char *last)
+static int ac_rangew(struct iblok *ip, char *last)
 {
 	register char *p;
-	wint_t	z;
+	wint_t z;
 	register struct words *c;
 	int failed, n = 0;
 
@@ -336,39 +324,36 @@ ac_rangew(struct iblok *ip, char *last)
 	failed = 0;
 	c = w;
 	for (;;) {
-		nstate:
-			if (*p & 0200) {
-				if ((n = mbtowi(&z, p, last + 1 - p)) < 0) {
-					n = 1;
-					z = WEOF;
-				}
-			} else {
-				z = *p;
+	nstate:
+		if (*p & 0200) {
+			if ((n = mbtowi(&z, p, last + 1 - p)) < 0) {
 				n = 1;
+				z = WEOF;
 			}
-			if (c->inp == (int)z) {
-				c = c->nst;
-			}
-			else if (c->link != 0) {
-				c = c->link;
-				goto nstate;
-			}
-			else {
-				c = c->fail;
-				failed = 1;
-				if (c==0) {
-					c = w;
-					istate:
-					if (c->inp == (int)z) {
-						c = c->nst;
-					}
-					else if (c->link != 0) {
-						c = c->link;
-						goto istate;
-					}
+		} else {
+			z = *p;
+			n = 1;
+		}
+		if (c->inp == (int)z) {
+			c = c->nst;
+		} else if (c->link != 0) {
+			c = c->link;
+			goto nstate;
+		} else {
+			c = c->fail;
+			failed = 1;
+			if (c == 0) {
+				c = w;
+			istate:
+				if (c->inp == (int)z) {
+					c = c->nst;
+				} else if (c->link != 0) {
+					c = c->link;
+					goto istate;
 				}
-				else goto nstate;
-			}
+			} else
+				goto nstate;
+		}
 		if (c->out) {
 			if (xflag) {
 				register char *ep = p;
@@ -380,14 +365,17 @@ ac_rangew(struct iblok *ip, char *last)
 				}
 			}
 			if (vflag == 0) {
-		succeed:	outline(ip, last, p - ip->ib_cur);
+			succeed:
+				outline(ip, last, p - ip->ib_cur);
 				if (qflag || lflag)
 					return 1;
 			} else {
 				ip->ib_cur = p;
-				while (*ip->ib_cur++ != '\n');
+				while (*ip->ib_cur++ != '\n')
+					;
 			}
-		nogood:	if ((p = ip->ib_cur) > last)
+		nogood:
+			if ((p = ip->ib_cur) > last)
 				return 0;
 			lineno++;
 			c = w;
@@ -409,26 +397,27 @@ ac_rangew(struct iblok *ip, char *last)
 	}
 }
 
-static void
-cgotofn(void)
+static void cgotofn(void)
 {
 	register int c;
 	register struct words *s;
 
 	woverflo();
 	s = smax = w = wcur;
-nword:	for(;;) {
+nword:
+	for (;;) {
 		c = nextch();
-		if (c==EOF)
+		if (c == EOF)
 			return;
 		if (c == '\n') {
 			if (xflag) {
-				for(;;) {
+				for (;;) {
 					if (s->inp == c) {
 						s = s->nst;
 						break;
 					}
-					if (s->inp == 0) goto nenter;
+					if (s->inp == 0)
+						goto nenter;
 					if (s->link == 0) {
 						if (++smax >= &wcur[MAXSIZ])
 							woverflo();
@@ -442,11 +431,13 @@ nword:	for(;;) {
 			s->out = 1;
 			s = w;
 		} else {
-		loop:	if (s->inp == c) {
+		loop:
+			if (s->inp == c) {
 				s = s->nst;
 				continue;
 			}
-			if (s->inp == 0) goto enter;
+			if (s->inp == 0)
+				goto enter;
 			if (s->link == 0) {
 				if (++smax >= &wcur[MAXSIZ])
 					woverflo();
@@ -459,16 +450,17 @@ nword:	for(;;) {
 		}
 	}
 
-	enter:
+enter:
 	do {
 		s->inp = c;
 		if (++smax >= &wcur[MAXSIZ])
 			woverflo();
 		s->nst = smax;
 		s = smax;
-	} while ((c = nextch()) != '\n' && c!=EOF);
+	} while ((c = nextch()) != '\n' && c != EOF);
 	if (xflag) {
-	nenter:	s->inp = '\n';
+	nenter:
+		s->inp = '\n';
 		if (++smax >= &wcur[MAXSIZ])
 			woverflo();
 		s->nst = smax;
@@ -479,8 +471,7 @@ nword:	for(;;) {
 		goto nword;
 }
 
-static void
-check(int val, int incr)
+static void check(int val, int incr)
 {
 	if ((unsigned)(val + incr) >= INT_MAX) {
 		fprintf(stderr, "%s: wordlist too large\n", progname);
@@ -488,21 +479,18 @@ check(int val, int incr)
 	}
 }
 
-static void
-woverflo(void)
+static void woverflo(void)
 {
 	wcur = smax = scalloc(MAXSIZ, sizeof *smax);
 }
 
-static void
-qoverflo(struct words ***queue, int *qsize)
+static void qoverflo(struct words ***queue, int *qsize)
 {
 	check(*qsize, QSIZE);
 	*queue = srealloc(*queue, (*qsize += QSIZE) * sizeof **queue);
 }
 
-static void
-cfail(void)
+static void cfail(void)
 {
 	struct words **queue = NULL;
 	int front, rear;
@@ -514,7 +502,8 @@ cfail(void)
 	qoverflo(&queue, &qsize);
 	s = w;
 	front = rear = 0;
-init:	if ((s->inp) != 0) {
+init:
+	if ((s->inp) != 0) {
 		queue[rear++] = s->nst;
 		if (rear >= qsize - 1)
 			qoverflo(&queue, &qsize);
@@ -523,34 +512,36 @@ init:	if ((s->inp) != 0) {
 		goto init;
 	}
 
-	while (rear!=front) {
+	while (rear != front) {
 		s = queue[front];
-		if (front == qsize-1)
+		if (front == qsize - 1)
 			qoverflo(&queue, &qsize);
 		front++;
-	cloop:	if ((c = s->inp) != 0) {
+	cloop:
+		if ((c = s->inp) != 0) {
 			bstart = 0;
 			q = s->nst;
 			queue[rear] = q;
 			if (front < rear) {
-				if (rear >= qsize-1)
+				if (rear >= qsize - 1)
 					qoverflo(&queue, &qsize);
 				rear++;
-			} else
-				if (++rear == front)
-					qoverflo(&queue, &qsize);
+			} else if (++rear == front)
+				qoverflo(&queue, &qsize);
 			state = s->fail;
-		floop:	if (state == 0) {
+		floop:
+			if (state == 0) {
 				state = w;
 				bstart = 1;
 			}
 			if (state->inp == c) {
-			qloop:	q->fail = state->nst;
+			qloop:
+				q->fail = state->nst;
 				if ((state->nst)->out == 1)
 					q->out = 1;
-				if ((q = q->link) != 0) goto qloop;
-			}
-			else if ((state = state->link) != 0)
+				if ((q = q->link) != 0)
+					goto qloop;
+			} else if ((state = state->link) != 0)
 				goto floop;
 			else if (bstart == 0) {
 				state = 0;
@@ -564,17 +555,17 @@ init:	if ((s->inp) != 0) {
 }
 
 /*ARGSUSED*/
-static int
-a0_match(const char *str, size_t sz)
+static int a0_match(const char *str, size_t sz)
 {
-	(void)str; (void)sz;
+	(void)str;
+	(void)sz;
 	return 0;
 }
 
 /*ARGSUSED*/
-static int
-a1_match(const char *str, size_t sz)
+static int a1_match(const char *str, size_t sz)
 {
-	(void)str; (void)sz;
+	(void)str;
+	(void)sz;
 	return 1;
 }

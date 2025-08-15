@@ -31,15 +31,14 @@
  * Memory allocation routines.
  */
 
-#include	<stdlib.h>
-#include	<unistd.h>
-#include	"alloc.h"
+#include "alloc.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 /*
  * Memory allocation with check.
  */
-void *
-smalloc(size_t nbytes)
+void *smalloc(size_t nbytes)
 {
 	void *p;
 
@@ -53,8 +52,7 @@ smalloc(size_t nbytes)
 /*
  * Memory reallocation with check.
  */
-void *
-srealloc(void *ptr, size_t nbytes)
+void *srealloc(void *ptr, size_t nbytes)
 {
 	void *cp;
 
@@ -68,8 +66,7 @@ srealloc(void *ptr, size_t nbytes)
 /*
  * Zero-filled allocation with check.
  */
-void *
-scalloc(size_t nelem, size_t elsize)
+void *scalloc(size_t nelem, size_t elsize)
 {
 	void *cp;
 

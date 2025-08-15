@@ -31,28 +31,27 @@
  * Code involving POSIX.2 regcomp()/regexpr() routines.
  */
 
-#include	"grep.h"
-#include	"alloc.h"
-#include	<stdio.h>
-#include	<stdlib.h>
-#include	<string.h>
-#include	<mbtowi.h>
+#include "alloc.h"
+#include "grep.h"
+#include <mbtowi.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-static int	emptypat;
+static int emptypat;
 
-#ifdef	UXRE
-#include	<regdfa.h>
-static int	rc_range(struct iblok *, char *);
-static int	rc_rangew(struct iblok *, char *);
+#ifdef UXRE
+#include <regdfa.h>
+static int rc_range(struct iblok *, char *);
+static int rc_rangew(struct iblok *, char *);
 #endif
 
 /*
  * Check whether line matches any pattern of the pattern list.
  */
-static int
-rc_match(const char *str, size_t sz)
+static int rc_match(const char *str, size_t sz)
 {
-#ifndef	UXRE
+#ifndef UXRE
 	struct expr *e;
 #endif
 	regmatch_t pmatch[1];
@@ -65,10 +64,10 @@ rc_match(const char *str, size_t sz)
 		} else
 			return 1;
 	}
-#ifdef	UXRE
+#ifdef UXRE
 	if (e0->e_exp)
 		gotcha = (regexec(e0->e_exp, str, 1, pmatch, 0) == 0);
-#else	/* !UXRE */
+#else  /* !UXRE */
 	for (e = e0; e; e = e->e_nxt) {
 		if (e->e_exp) {
 			gotcha = (regexec(e->e_exp, str, 1, pmatch, 0) == 0);
@@ -76,11 +75,10 @@ rc_match(const char *str, size_t sz)
 				break;
 		}
 	}
-#endif	/* !UXRE */
+#endif /* !UXRE */
 	if (gotcha) {
 		regoff_t rm_eo = pmatch[0].rm_eo;
-		if (!xflag || (pmatch[0].rm_so == 0
-				&& ((rm_eo >= 0) && (unsigned)rm_eo == sz)))
+		if (!xflag || (pmatch[0].rm_so == 0 && ((rm_eo >= 0) && (unsigned)rm_eo == sz)))
 			return 1;
 	}
 	return 0;
@@ -89,15 +87,14 @@ rc_match(const char *str, size_t sz)
 /*
  * Compile a pattern structure using regcomp().
  */
-static void
-rc_build(void)
+static void rc_build(void)
 {
 	int rerror = REG_BADPAT;
 	int rflags = 0;
 	size_t sz;
-#ifdef	UXRE
+#ifdef UXRE
 	char *pat, *cp;
-#endif	/* UXRE */
+#endif /* UXRE */
 	struct expr *e;
 
 	if ((e0->e_flg & E_NULL) == 0) {
@@ -115,7 +112,7 @@ rc_build(void)
 		e0->e_exp = NULL;
 		return;
 	}
-#ifdef	UXRE
+#ifdef UXRE
 	pat = smalloc(sz);
 	for (cp = pat, e = e0; e; e = e->e_nxt) {
 		if (e->e_len > 0) {
@@ -128,8 +125,7 @@ rc_build(void)
 	if (iflag)
 		rflags |= REG_ICASE;
 	if (Eflag)
-		rflags |= (sus ? REG_EXTENDED : REG_OLDERE|REG_NOI18N) |
-			REG_MTPARENBAD;
+		rflags |= (sus ? REG_EXTENDED : REG_OLDERE | REG_NOI18N) | REG_MTPARENBAD;
 	else {
 		rflags |= REG_ANGLES;
 		if (sus >= 3)
@@ -147,7 +143,7 @@ rc_build(void)
 	free(pat);
 	if (!xflag && e->e_exp->re_flags & REG_DFA)
 		range = mbcode ? rc_rangew : rc_range;
-#else	/* !UXRE */
+#else  /* !UXRE */
 	if (iflag)
 		rflags |= REG_ICASE;
 	if (Eflag)
@@ -159,11 +155,10 @@ rc_build(void)
 		if ((rerror = regcomp(e->e_exp, e->e_pat, rflags)) != 0)
 			rc_error(e, rerror);
 	}
-#endif	/* !UXRE */
+#endif /* !UXRE */
 }
 
-void
-rc_select(void)
+void rc_select(void)
 {
 	build = rc_build;
 	match = rc_match;
@@ -209,17 +204,16 @@ rc_select(void)
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#ifdef	UXRE
+#ifdef UXRE
 /*
  * Range search for singlebyte locales using the modified UNIX(R) Regular
  * Expression Library DFA.
  */
-static int
-rc_range(struct iblok *ip, char *last)
+static int rc_range(struct iblok *ip, char *last)
 {
-	char	*p;
-	int	c, cstat, nstat;
-	Dfa	*dp = e0->e_exp->re_dfa;
+	char *p;
+	int c, cstat, nstat;
+	Dfa *dp = e0->e_exp->re_dfa;
 
 	p = ip->ib_cur;
 	lineno++;
@@ -243,14 +237,18 @@ rc_range(struct iblok *ip, char *last)
 			dp->trans[cstat]['\n'] = dp->trans[cstat]['\0'];
 		}
 		if (dp->acc[cstat = nstat - 1]) {
-		found:	for (;;) {
+		found:
+			for (;;) {
 				if (vflag == 0) {
-		succeed:		outline(ip, last, p - ip->ib_cur);
+				succeed:
+					outline(ip, last, p - ip->ib_cur);
 					if (qflag || lflag)
 						return 1;
 				} else {
-		fail:			ip->ib_cur = p;
-					while (*ip->ib_cur++ != '\n');
+				fail:
+					ip->ib_cur = p;
+					while (*ip->ib_cur++ != '\n')
+						;
 				}
 				if ((p = ip->ib_cur) > last)
 					return 0;
@@ -270,7 +268,7 @@ rc_range(struct iblok *ip, char *last)
 			if (dp->acc[cstat = dp->anybol])
 				goto found;
 		}
-		brk2:;
+	brk2:;
 	}
 }
 
@@ -278,13 +276,12 @@ rc_range(struct iblok *ip, char *last)
  * Range search for multibyte locales using the modified UNIX(R) Regular
  * Expression Library DFA.
  */
-static int
-rc_rangew(struct iblok *ip, char *last)
+static int rc_rangew(struct iblok *ip, char *last)
 {
-	char	*p;
-	int	n, cstat, nstat;
-	wint_t	wc;
-	Dfa	*dp = e0->e_exp->re_dfa;
+	char *p;
+	int n, cstat, nstat;
+	wint_t wc;
+	Dfa *dp = e0->e_exp->re_dfa;
 
 	p = ip->ib_cur;
 	lineno++;
@@ -301,8 +298,7 @@ rc_rangew(struct iblok *ip, char *last)
 			wc = *p;
 			n = 1;
 		}
-		if ((wc & ~(wchar_t)(NCHAR-1)) != 0 ||
-				(nstat = dp->trans[cstat][wc]) == 0) {
+		if ((wc & ~(wchar_t)(NCHAR - 1)) != 0 || (nstat = dp->trans[cstat][wc]) == 0) {
 			/*
 			 * '\0' is used to indicate end-of-line. If a '\0'
 			 * character appears in input, it matches '$' but
@@ -318,14 +314,18 @@ rc_rangew(struct iblok *ip, char *last)
 			dp->trans[cstat]['\n'] = dp->trans[cstat]['\0'];
 		}
 		if (dp->acc[cstat = nstat - 1]) {
-		found:	for (;;) {
+		found:
+			for (;;) {
 				if (vflag == 0) {
-		succeed:		outline(ip, last, p - ip->ib_cur);
+				succeed:
+					outline(ip, last, p - ip->ib_cur);
 					if (qflag || lflag)
 						return 1;
 				} else {
-		fail:			ip->ib_cur = p;
-					while (*ip->ib_cur++ != '\n');
+				fail:
+					ip->ib_cur = p;
+					while (*ip->ib_cur++ != '\n')
+						;
 				}
 				if ((p = ip->ib_cur) > last)
 					return 0;
@@ -346,7 +346,7 @@ rc_rangew(struct iblok *ip, char *last)
 			if (dp->acc[cstat = dp->anybol])
 				goto found;
 		}
-		brk2:;
+	brk2:;
 	}
 }
-#endif	/* UXRE */
+#endif /* UXRE */
