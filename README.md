@@ -61,4 +61,4 @@ $ ./do-analysis.sh
 
 
 ## Report
-* `report.pdf`
+* `[refactoring-report](docs/refactoring-report.md)`
