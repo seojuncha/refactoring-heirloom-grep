@@ -667,7 +667,7 @@ parse_args(int argc, char **argv, char *opts)
 }
 
 int
-main(int argc, char **argv)
+grep_run(int argc, char **argv)
 {
 	hadpat = 0;
 #ifdef	__GLIBC__

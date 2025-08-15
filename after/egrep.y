@@ -291,7 +291,7 @@ yylex(void) {
 
 static void
 synerror(void) {
-	yyerror("syntax error");
+	yyerror("syntax error here");
 }
 
 static int
@@ -758,3 +758,9 @@ rc_select(void)
 char *usagemsg =
 "usage: %s [ -bchilnv ] [ -e exp ] [ -f file ] [ strings ] [ file ] ...\n";
 char *stdinmsg;
+
+int
+main(int argc, char **argv)
+{
+	return grep_run(argc, argv);
+}

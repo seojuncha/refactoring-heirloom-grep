@@ -1,8 +1,7 @@
 /*
  * grep - search a file for a pattern
  *
- * Gunnar Ritter, Freiburg i. Br., Germany, April 2001.
- */
+ * Gunnar Ritter, Freiburg i. Br., Germany, April 2001.  */
 /*
  * Copyright (c) 2003 Gunnar Ritter
  *
@@ -105,6 +104,7 @@ extern char		*options;	/* for getopt() */
 /*
  * In grep.c.
  */
+extern int grep_run(int argc, char **argv);
 extern size_t		loconv(char *, char *, size_t);
 extern void		wcomp(char **, long *);
 extern void		report(const char *, size_t, off_t, int);

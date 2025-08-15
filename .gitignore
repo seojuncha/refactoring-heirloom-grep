@@ -19,3 +19,5 @@ config.h
 tests
 analysis-reports
 CHECK
+egrep.c
+egrep_main.c
