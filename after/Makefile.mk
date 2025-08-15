@@ -49,6 +49,10 @@ $(LIB_COMMON):
 $(LIB_UXRE):
 	cd libuxre && $(MAKE) -f Makefile.mk
 
+test: grep
+	@echo "Running smoke tests.."
+	cd .. && G=./after/grep SYS_GREP=/bin/grep bash smoke-test.sh
+
 install: all
 	$(UCBINST) -c egrep $(ROOT)$(SV3BIN)/egrep
 	$(STRIP) $(ROOT)$(SV3BIN)/egrep
